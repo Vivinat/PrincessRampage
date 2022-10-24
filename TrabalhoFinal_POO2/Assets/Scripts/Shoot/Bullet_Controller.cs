@@ -22,4 +22,14 @@ public class Bullet_Controller : MonoBehaviour
         yield return new WaitForSeconds(lifeTime);  //Espere a quantidade de tempo definido por lifeTime
         Destroy(gameObject);       //Depois, destrua o objeto (a bala)
     }
+
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.tag == "Enemy"){ //Se minha bala acerta alguma coisa com a tag Enemy
+            collider.gameObject.GetComponent<Enemy_Controller>().Die();
+            Destroy(gameObject);
+        }
+    }
+
 }

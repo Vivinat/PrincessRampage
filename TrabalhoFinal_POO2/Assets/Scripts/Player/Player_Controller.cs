@@ -2,19 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Movement : MonoBehaviour
+public class Player_Controller : MonoBehaviour
 {
     public Rigidbody2D rb;          //Referencia para o corpo do player
     public Animator anim;           //Referencia para nosso animador
-    public float MovementSpeed = 5f;//Referencia para a speed to player
+    public float MovementSpeed;     //Referencia para a speed to player
     Vector2 movement;               //Guardará posicionamento vertical e horizontal
     public GameObject BulletPrefab; //A bala
     public float BulletSpeed;       //Velocidade da bala
     private float LastFire;         //Quando foi que disparei minha ultima bala?
     public float FireDelay;         //Delay entre os tiros
+    public static int collectedAmount = 0;
+    public int currentExp = 0;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+
 
     // Update é chamada uma vez por frame
     void Update(){
+
+        FireDelay = Game_Controller.FireRate;
+        MovementSpeed = Game_Controller.MoveSpeed;
+
         movement.x = Input.GetAxisRaw("Horizontal"); //Verifica a posição do player na horizontal e retorna um valor
         movement.y = Input.GetAxisRaw("Vertical");
         float shootHor = Input.GetAxis("ShootHorizontal"); //Verifica a posição para atirar
