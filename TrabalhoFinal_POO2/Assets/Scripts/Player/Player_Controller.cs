@@ -12,8 +12,7 @@ public class Player_Controller : MonoBehaviour
     public float BulletSpeed;       //Velocidade da bala
     private float LastFire;         //Quando foi que disparei minha ultima bala?
     public float FireDelay;         //Delay entre os tiros
-    public static int collectedAmount = 0;
-    public int currentExp = 0;
+    public int currentExp;          //Quanto de XP eu tenho?
 
     void Start()
     {
@@ -21,12 +20,12 @@ public class Player_Controller : MonoBehaviour
     }
 
 
-
     // Update é chamada uma vez por frame
     void Update(){
 
         FireDelay = Game_Controller.FireRate;
         MovementSpeed = Game_Controller.MoveSpeed;
+        currentExp = Game_Controller.Exp;
 
         movement.x = Input.GetAxisRaw("Horizontal"); //Verifica a posição do player na horizontal e retorna um valor
         movement.y = Input.GetAxisRaw("Vertical");
@@ -51,13 +50,17 @@ public class Player_Controller : MonoBehaviour
             );
         }
 
+        if (currentExp == 100)
+        {
+            //LevelUp();
+        }
+
     }
 
     void FixedUpdate(){ //Fixed Update é independente a quantidade de frames 
         rb.MovePosition(rb.position + movement * MovementSpeed * Time.fixedDeltaTime); 
         //Ande de acordo com sua posição atual, influenciada pelo vetor de direção, multiplicada pela speed
         //e multiplicada pelo tempo fixo da animação 
-
 
         //Pra qual direçao nosso personagem está olhando?
         if (movement.y > 0){

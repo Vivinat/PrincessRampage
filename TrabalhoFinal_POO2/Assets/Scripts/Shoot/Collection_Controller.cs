@@ -14,8 +14,6 @@ public class Collection_Controller : MonoBehaviour
 {
     public Item item;
     public float healthChange;
-    public float damageChange;
-    public float fireRateChange;
     public float moveSpeedChange;
 
 
@@ -31,11 +29,8 @@ public class Collection_Controller : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Player_Controller.collectedAmount++;
-            //Player_Controller.HealPlayer(healthChange);
-            //Player_Controller.DamageChange(damageChange);
-            //Player_Controller.FireRateChange(fireRateChange);
-            //Player_Controller.MoveSpeedChange(moveSpeedChange);
+            Game_Controller.HealPlayer(healthChange);
+            Game_Controller.MoveSpeedChange(moveSpeedChange);
             Destroy(gameObject);
         }
 

@@ -52,6 +52,7 @@ public class Game_Controller : MonoBehaviour
 
     public static void HealPlayer(float healAmount)     //Estou me curando
     {
+        Debug.Log (health);
         health = Mathf.Min(maxHealth, health + healAmount);
     }
 
@@ -60,15 +61,20 @@ public class Game_Controller : MonoBehaviour
         moveSpeed += speed;
     }
 
-    public static void FireRateChange(float rate)       //Consigo atirar mais rápido
+    public static void ExpChange(int xp)
     {
-        fireRate -= rate;
+        exp += xp;
     }
 
-    public static void DamageChange(float dam)          //Meu dano aumentou
-    {
-        damage -= dam;
-    }
+    //public static void FireRateChange(float rate)       //Consigo atirar mais rápido
+    //{
+        //fireRate -= rate;
+    //}
+
+    //public static void DamageChange(float dam)          //Meu dano aumentou
+    //{
+        //damage += dam;
+    //}
 
 
     private static void KillPlayer()                    //Morri
