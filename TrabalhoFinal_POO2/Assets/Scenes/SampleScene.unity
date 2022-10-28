@@ -336,6 +336,9 @@ MonoBehaviour:
   attackRange: 1
   enemyDamage: 2
   cooldown: 1
+  life: 3
+  flashMaterial: {fileID: 2100000, guid: 5fc7f904dcea20347ae97983374de9c1, type: 2}
+  duration: 0.1
 --- !u!1001 &574199034519784378
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -21,12 +21,25 @@ public class Enemy_Controller : MonoBehaviour
     public int enemyDamage;
     private bool cooldownAttack = false;
     public int cooldown;
+    public float life;
 
+    //Quero que o inimigo pisque quando tome dano!
+    [SerializeField]
+    private Material flashMaterial;
+
+    [SerializeField]
+    private float duration;
+
+    private SpriteRenderer spriteRenderer;
+    private Material originalMaterial;
+    private Coroutine flashRoutine;
     
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");    //Procure o player
+        spriteRenderer = GetComponent<SpriteRenderer>();        //Pegue o renderizador do inimigo
+        originalMaterial = spriteRenderer.material;             
     }
 
     // Update is called once per frame
@@ -46,15 +59,15 @@ public class Enemy_Controller : MonoBehaviour
 
         if(Vector3.Distance(transform.position, player.transform.position) <= attackRange)  //Se estiver na distancia correta
         {
-            currentState = EnemyState.Attack;
+            currentState = EnemyState.Attack;   //Consigo atacar
         }
         if(Vector3.Distance(transform.position, player.transform.position) >= attackRange)  //Se estiver na distancia correta
         {
-            currentState = EnemyState.Follow;
+            currentState = EnemyState.Follow;   //Consigo seguir
         }
 
     }
-
+    //Segue o player
     void Follow()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
@@ -76,8 +89,37 @@ public class Enemy_Controller : MonoBehaviour
         cooldownAttack = false; 
     }
 
+    //Tomei dano
+    public void TakeDamage(float damage)
+    {
+        Flash();        //Vou piscar para sinalizar que tomei dano
+        life -= damage; 
+        if (life <= 0)
+        {
+            Die();
+        }
+    }
+
     public void Die()
     {
         Destroy(gameObject);
+    }
+
+    //Tomei dano e agora vou piscar
+    private IEnumerator FlashRoutine()
+    {
+        spriteRenderer.material = flashMaterial;    //Troque o material do inimigo pelo flashMaterial
+        yield return new WaitForSeconds(duration);  //Espere
+        spriteRenderer.material = originalMaterial; //Devolva o material original do inimigo
+        flashRoutine = null;                        //No termino da routine, flashRoutine torna-se null
+    }
+
+    public void Flash()
+    {
+        if (flashRoutine != null)   //Se não é nulo, é por que está acontecendo agora
+        {
+            StopCoroutine (flashRoutine);   //Se for esse o caso, temos que parar para não bugar
+        }
+        flashRoutine = StartCoroutine(FlashRoutine());  //Se for nulo, podemos iniciar
     }
 }

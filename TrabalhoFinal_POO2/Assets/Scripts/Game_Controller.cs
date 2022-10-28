@@ -66,15 +66,15 @@ public class Game_Controller : MonoBehaviour
         exp += xp;
     }
 
-    //public static void FireRateChange(float rate)       //Consigo atirar mais rápido
-    //{
-        //fireRate -= rate;
-    //}
+    public static void FireRateChange(float rate)       //Consigo atirar mais rápido
+    {
+        fireRate -= rate;
+    }
 
-    //public static void DamageChange(float dam)          //Meu dano aumentou
-    //{
-        //damage += dam;
-    //}
+    public static void DamageChange(float dam)          //Meu dano aumentou
+    {
+        damage += dam;
+    }
 
 
     private static void KillPlayer()                    //Morri

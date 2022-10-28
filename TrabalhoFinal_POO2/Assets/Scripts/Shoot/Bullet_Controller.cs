@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet_Controller : MonoBehaviour
 {
     public float lifeTime; 
+    public float damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,7 @@ public class Bullet_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        damage = Game_Controller.Damage;
         
     }
 
@@ -27,7 +29,7 @@ public class Bullet_Controller : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.tag == "Enemy"){ //Se minha bala acerta alguma coisa com a tag Enemy
-            collider.gameObject.GetComponent<Enemy_Controller>().Die();
+            collider.gameObject.GetComponent<Enemy_Controller>().TakeDamage(damage);
             Destroy(gameObject);
         }
         if(collider.tag == "Wall"){ //Se minha bala acerta uma parede
