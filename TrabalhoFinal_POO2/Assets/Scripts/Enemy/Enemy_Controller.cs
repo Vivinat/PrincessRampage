@@ -22,6 +22,7 @@ public class Enemy_Controller : MonoBehaviour
     private bool cooldownAttack = false;
     public int cooldown;
     public int life;
+    public int XP;
 
     //Quero que o inimigo pisque quando tome dano!
     [SerializeField]
@@ -102,6 +103,7 @@ public class Enemy_Controller : MonoBehaviour
 
     public void Die()
     {
+        Game_Controller.ExpChange(XP);
         Destroy(gameObject);
     }
 

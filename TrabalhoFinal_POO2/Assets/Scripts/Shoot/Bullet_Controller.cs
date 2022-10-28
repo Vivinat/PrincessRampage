@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet_Controller : MonoBehaviour
 {
     public float lifeTime; 
-    public int damage;
+    private int damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class Bullet_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        damage = Game_Controller.Damage;
+        damage = Game_Controller.Damage;    //Preciso saber se meu dano mudou
         
     }
 

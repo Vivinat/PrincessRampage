@@ -343,10 +343,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4842993713593516947, guid: c6280fd2dae6cb741b0b0763100024d4, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 4842993713593516946, guid: c6280fd2dae6cb741b0b0763100024d4, type: 3}
+      propertyPath: BulletPrefabFire
+      value: 
+      objectReference: {fileID: 6178575179728978921, guid: 1f9d457cb7c15c644b62c79ccdb1f249, type: 3}
     - target: {fileID: 4842993713593516948, guid: c6280fd2dae6cb741b0b0763100024d4, type: 3}
       propertyPath: m_Name
       value: Player
@@ -10021,7 +10021,7 @@ GameObject:
   - component: {fileID: 1775710335}
   - component: {fileID: 1775710336}
   m_Layer: 0
-  m_Name: Play
+  m_Name: MusicPlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

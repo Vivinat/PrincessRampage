@@ -15,6 +15,7 @@ public class Player_Controller : MonoBehaviour
     public float FireDelay;         //Delay entre os tiros
     public int currentExp;          //Quanto de XP eu tenho?
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -51,12 +52,38 @@ public class Player_Controller : MonoBehaviour
             );
         }
 
-        if (currentExp == 100)
+        if (currentExp >= 100)
         {
-            //LevelUp();
+            LevelUp();
         }
-
     }
+
+
+    void LevelUp()
+    {
+        currentExp = 0;
+        Game_Controller.Exp = 0;
+        Debug.Log ("LEVEL UP");
+        int rand = Random.Range(1,4);
+        Debug.Log (rand);
+        if (rand == 1)
+        {
+            Game_Controller.MaxHealthChange(2);
+        }
+        if (rand == 2)
+        {
+            Game_Controller.MoveSpeedChange(2);
+        }
+        if (rand == 3)
+        {
+            Game_Controller.DamageChange(2);
+        }
+        else
+        {
+            Game_Controller.FireRateChange(0.05f);
+        }
+    }
+
 
     void FixedUpdate(){ //Fixed Update é independente a quantidade de frames 
         rb.MovePosition(rb.position + movement * MovementSpeed * Time.fixedDeltaTime); 

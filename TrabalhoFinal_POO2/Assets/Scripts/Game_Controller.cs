@@ -60,6 +60,11 @@ public class Game_Controller : MonoBehaviour
         health = Mathf.Min(maxHealth, health + healAmount);
     }
 
+    public static void MaxHealthChange (int maxHealthAmount)
+    {
+        maxHealth += maxHealthAmount;
+    }
+
     public static void MoveSpeedChange(float speed)     //Estou mais rápido
     {
         moveSpeed += speed;
@@ -67,6 +72,10 @@ public class Game_Controller : MonoBehaviour
 
     public static void ExpChange(int xp)
     {
+        if (exp >= 100)
+        {
+            exp = 0;
+        }
         exp += xp;
     }
 
