@@ -13,7 +13,7 @@ public class Item
 public class Collection_Controller : MonoBehaviour
 {
     public Item item;
-    public float healthChange;
+    public int healthChange;
     public float moveSpeedChange;
 
 

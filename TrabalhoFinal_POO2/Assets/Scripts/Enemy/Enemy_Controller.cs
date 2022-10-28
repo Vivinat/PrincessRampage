@@ -21,7 +21,7 @@ public class Enemy_Controller : MonoBehaviour
     public int enemyDamage;
     private bool cooldownAttack = false;
     public int cooldown;
-    public float life;
+    public int life;
 
     //Quero que o inimigo pisque quando tome dano!
     [SerializeField]
@@ -90,7 +90,7 @@ public class Enemy_Controller : MonoBehaviour
     }
 
     //Tomei dano
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         Flash();        //Vou piscar para sinalizar que tomei dano
         life -= damage; 

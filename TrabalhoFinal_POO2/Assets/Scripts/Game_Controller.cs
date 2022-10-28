@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 //Aqui está uma das Design Patterns: Singleton!
 public class Game_Controller : MonoBehaviour
@@ -10,10 +11,10 @@ public class Game_Controller : MonoBehaviour
     //Nós queremos inicializa-los apenas uma vez!
     public static Game_Controller instance;
 
-    private static float health = 10;
+    private static int health = 10;
     private static int maxHealth = 10;
     private static float fireRate = 0.5f;
-    private static float damage = 1;
+    private static int damage = 1;
     private static float moveSpeed = 5f;
     private static int exp = 0;
 
@@ -22,12 +23,13 @@ public class Game_Controller : MonoBehaviour
     
     //Minusculo = variaveis privadas
     //Maiusculo = variaveis publicas
-    public static float Health {get => health; set => health = value;}
+    public static int Health {get => health; set => health = value;}
     public static int MaxHealth {get => maxHealth; set => maxHealth = value;}
     public static float FireRate {get => fireRate; set => fireRate = value;}
-    public static float Damage {get => damage; set => damage = value;}
+    public static int Damage {get => damage; set => damage = value;}
     public static float MoveSpeed {get => moveSpeed; set => moveSpeed = value;}
     public static int Exp {get => exp; set => exp = value;}
+
 
     private void Awake(){
 
@@ -42,6 +44,8 @@ public class Game_Controller : MonoBehaviour
     public static void DamagePlayer(int damage) //Tomei dano
     {
         health -= damage;
+        Debug.Log("Vida");
+        Debug.Log (health);
 
         if(health <= 0)     //Dano zerou minha vida
         {
@@ -50,7 +54,7 @@ public class Game_Controller : MonoBehaviour
 
     }
 
-    public static void HealPlayer(float healAmount)     //Estou me curando
+    public static void HealPlayer(int healAmount)     //Estou me curando
     {
         Debug.Log (health);
         health = Mathf.Min(maxHealth, health + healAmount);
@@ -71,15 +75,14 @@ public class Game_Controller : MonoBehaviour
         fireRate -= rate;
     }
 
-    public static void DamageChange(float dam)          //Meu dano aumentou
+    public static void DamageChange(int dam)          //Meu dano aumentou
     {
         damage += dam;
     }
 
-
-    private static void KillPlayer()                    //Morri
+    public static void KillPlayer()
     {
-
+        SceneManager.LoadScene("Menu");
     }
 
 }
