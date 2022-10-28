@@ -17,7 +17,7 @@ public class MenuController : MonoBehaviour
     {
         Debug.Log("Load game");
         AudioManager.instance.StopSound("Menu");
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Story_Intro");
     }
 
     public void QuitGame()              //Sai do jogo

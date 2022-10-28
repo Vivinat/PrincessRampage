@@ -30,6 +30,10 @@ public class Bullet_Controller : MonoBehaviour
             collider.gameObject.GetComponent<Enemy_Controller>().Die();
             Destroy(gameObject);
         }
+        if(collider.tag == "Wall"){ //Se minha bala acerta uma parede
+            Destroy(gameObject);
+        }
+
     }
 
 }
