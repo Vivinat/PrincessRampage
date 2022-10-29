@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4908753914043869540}
   - component: {fileID: 4908753914043869543}
   - component: {fileID: 4908753914043869536}
+  - component: {fileID: 1422179369}
   m_Layer: 0
   m_Name: RedSlime
   m_TagString: Enemy
@@ -154,3 +155,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1422179369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908753914043869547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ab144e6090fc04bb5aa244b9cd691e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootPrefab: {fileID: 5866561858304264800, guid: 3ed50588f6925ea4a8b3120273934723, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: c8c0e096f1b03d7489313c38c6d1138f, type: 2}

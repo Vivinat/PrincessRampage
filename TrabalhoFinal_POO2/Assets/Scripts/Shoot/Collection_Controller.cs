@@ -15,6 +15,8 @@ public class Collection_Controller : MonoBehaviour
     public Item item;
     public int healthChange;
     public float moveSpeedChange;
+    public int mHealthChange;
+    public int DamChange;
 
 
     // Start is called before the first frame update
@@ -31,6 +33,8 @@ public class Collection_Controller : MonoBehaviour
         {
             Game_Controller.HealPlayer(healthChange);
             Game_Controller.MoveSpeedChange(moveSpeedChange);
+            Game_Controller.MaxHealthChange(mHealthChange);
+            Game_Controller.DamageChange(DamChange);
             Destroy(gameObject);
         }
 

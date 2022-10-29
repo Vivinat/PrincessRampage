@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3571122554969305155
+--- !u!1 &8815216649681804739
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,56 +8,58 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3571122554969305159}
-  - component: {fileID: 3571122554969305158}
-  - component: {fileID: 3571122554969305153}
-  - component: {fileID: 3571122554969305156}
+  - component: {fileID: 8815216649681804767}
+  - component: {fileID: 8815216649681804766}
+  - component: {fileID: 8815216649681804737}
+  - component: {fileID: 8815216649681804736}
   m_Layer: 0
-  m_Name: SpeedBuff
+  m_Name: MaxHealthBuff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3571122554969305159
+--- !u!4 &8815216649681804767
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3571122554969305155}
+  m_GameObject: {fileID: 8815216649681804739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.61, y: -2.94, z: -0.08170651}
+  m_LocalPosition: {x: 4.88, y: -1.31, z: -0.0022349022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3571122554969305158
+--- !u!114 &8815216649681804766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3571122554969305155}
+  m_GameObject: {fileID: 8815216649681804739}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d42baac8dc8354a43994b5f6164bfb1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    name: SpeedBuff
-    itemImage: {fileID: 21300000, guid: 93a1483e912a9d94a8897c8584d58570, type: 3}
+    name: GoldenHearth
+    itemImage: {fileID: 21300000, guid: 0f40bfe53ec48684c80ee34d33f465bd, type: 3}
   healthChange: 0
-  moveSpeedChange: 2
---- !u!212 &3571122554969305153
+  moveSpeedChange: 0
+  mHealthChange: 1
+  DamChange: 0
+--- !u!212 &8815216649681804737
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3571122554969305155}
+  m_GameObject: {fileID: 8815216649681804739}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -103,13 +105,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &3571122554969305156
+--- !u!58 &8815216649681804736
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3571122554969305155}
+  m_GameObject: {fileID: 8815216649681804739}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

@@ -103,6 +103,7 @@ public class Enemy_Controller : MonoBehaviour
 
     public void Die()
     {
+        GetComponent<LootBag>().InstantiateLoot(transform.position);
         Game_Controller.ExpChange(XP);
         Destroy(gameObject);
     }

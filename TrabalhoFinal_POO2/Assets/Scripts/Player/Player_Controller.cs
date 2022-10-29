@@ -64,7 +64,7 @@ public class Player_Controller : MonoBehaviour
         currentExp = 0;
         Game_Controller.Exp = 0;
         Debug.Log ("LEVEL UP");
-        int rand = Random.Range(1,4);
+        int rand = Random.Range(1,5);
         Debug.Log (rand);
         if (rand == 1)
         {
