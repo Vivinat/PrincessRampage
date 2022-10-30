@@ -144,10 +144,7 @@ MonoBehaviour:
   rb: {fileID: 4842993713593516951}
   anim: {fileID: 4842993713593516950}
   MovementSpeed: 5
-  BulletPrefabFire: {fileID: 6178575179728978921, guid: 1f9d457cb7c15c644b62c79ccdb1f249, type: 3}
-  BulletPrefabWind: {fileID: 1914938340855075438, guid: 77ac267c416f9794ea15d6eace21492c, type: 3}
-  BulletPrefabIce: {fileID: 5524332713149926516, guid: 7c548526e5a073f478e9c57182921c60, type: 3}
-  BulletPrefabRock: {fileID: 3032545952796968141, guid: 73d8b97ed0bf049478d5d0abcfaf918d, type: 3}
+  BulletPrefab: {fileID: 6178575179728978921, guid: 1f9d457cb7c15c644b62c79ccdb1f249, type: 3}
   BulletSpeed: 7.5
   FireDelay: 0.5
   currentExp: 0

@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 8907765b7cdb8594c9f2d5f9fc889f57
   - enabled: 1
+    path: Assets/Scenes/FirstStage.unity
+    guid: 9de34ccc74c7236428bc1426462af006
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -21,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Tuto_Intro.unity
     guid: b379d65705960fe4f9503caa7bfe3475
   - enabled: 1
-    path: Assets/Scenes/FirstStage.unity
-    guid: 9de34ccc74c7236428bc1426462af006
+    path: Assets/Scenes/DeathScene.unity
+    guid: fae657fb723c34c47a2d89dee70170de
   m_configObjects: {}

@@ -449,11 +449,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f684e7690f83444aa4a332f42286c51, type: 3}
---- !u!95 &2107235959 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4842993713593516950, guid: c6280fd2dae6cb741b0b0763100024d4, type: 3}
-  m_PrefabInstance: {fileID: 4842993715528697116}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2107235964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4842993713593516945, guid: c6280fd2dae6cb741b0b0763100024d4, type: 3}
@@ -632,10 +627,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4032476318862098966, guid: 9a84b266978008346a870046a5ccfb0d, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 2107235959}
     - target: {fileID: 4032476318862098967, guid: 9a84b266978008346a870046a5ccfb0d, type: 3}
       propertyPath: m_Name
       value: GameController
@@ -693,10 +684,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4842993713593516946, guid: c6280fd2dae6cb741b0b0763100024d4, type: 3}
-      propertyPath: BulletPrefab
-      value: 
-      objectReference: {fileID: 6178575179728978921, guid: 1f9d457cb7c15c644b62c79ccdb1f249, type: 3}
     - target: {fileID: 4842993713593516948, guid: c6280fd2dae6cb741b0b0763100024d4, type: 3}
       propertyPath: m_Name
       value: Player

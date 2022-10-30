@@ -91,7 +91,7 @@ public class Game_Controller : MonoBehaviour
 
     public static void KillPlayer()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("DeathScene");
     }
 
 }
