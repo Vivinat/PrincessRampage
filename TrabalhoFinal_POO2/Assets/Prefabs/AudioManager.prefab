@@ -65,7 +65,7 @@ MonoBehaviour:
     loop: 1
   - audioSource: {fileID: 0}
     name: Final_Boss
-    clip: {fileID: 8300000, guid: 8acefd925e76ca443989f76f91b6f931, type: 3}
+    clip: {fileID: 8300000, guid: edef4e35411796f49b82e2df0e9d9d4b, type: 3}
     volume: 0.5
     pitch: 1
     loop: 1

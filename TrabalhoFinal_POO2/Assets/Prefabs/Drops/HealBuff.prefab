@@ -51,6 +51,8 @@ MonoBehaviour:
     itemImage: {fileID: 21300000, guid: 0de2746719af262469cfc85085a5f76c, type: 3}
   healthChange: 5
   moveSpeedChange: 0
+  mHealthChange: 0
+  DamChange: 0
 --- !u!212 &5866561858304264830
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,15 +94,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0de2746719af262469cfc85085a5f76c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.5, y: 2.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &5866561858304264831

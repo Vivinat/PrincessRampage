@@ -127,11 +127,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  speed: 3
+  speed: 4.5
   attackRange: 1
   enemyDamage: 1
   cooldown: 1
-  life: 3
+  life: 5
   XP: 5
   flashMaterial: {fileID: 2100000, guid: 5fc7f904dcea20347ae97983374de9c1, type: 2}
   duration: 0.1
@@ -169,4 +169,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LootPrefab: {fileID: 4105217821566481723, guid: dc86acbd3b234e548b597af5215aa8eb, type: 3}
   lootList:
+  - {fileID: 11400000, guid: 41a668da87959534f937dec451365b94, type: 2}
   - {fileID: 11400000, guid: 41a668da87959534f937dec451365b94, type: 2}

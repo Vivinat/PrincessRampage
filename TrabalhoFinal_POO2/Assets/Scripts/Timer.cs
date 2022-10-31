@@ -27,15 +27,23 @@ public class Timer : MonoBehaviour
             currentTime = timerLimit;
             SetTimerText();
             timerText.color = Color.red;
+
             GameObject[] spawn = GameObject.FindGameObjectsWithTag("Spawner");
             foreach(GameObject spa in spawn){
                 Destroy(spa);
             }
+
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach(GameObject ene in enemies){
                 Destroy(ene);
-            SceneManager.LoadScene(nextStage);
             }
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                SceneManager.LoadScene(nextStage);    
+            }
+
+            SceneManager.LoadScene(nextStage);
             enabled = false;
         }
         SetTimerText();

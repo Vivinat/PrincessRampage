@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  speed: 2
+  speed: 4
   attackRange: 1
   enemyDamage: 2
   cooldown: 3
@@ -169,4 +169,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LootPrefab: {fileID: 3571122554969305155, guid: 6a6d37eb4f6a8b44d9135ececf7a5246, type: 3}
   lootList:
+  - {fileID: 11400000, guid: 89cc95400a7d3604884cc211772baf49, type: 2}
   - {fileID: 11400000, guid: 89cc95400a7d3604884cc211772baf49, type: 2}
