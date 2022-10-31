@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7724580612693141323}
   - component: {fileID: 7724580612693141320}
   - component: {fileID: 7724580612693141321}
+  - component: {fileID: -2097773199509542553}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Enemy
@@ -131,7 +132,7 @@ MonoBehaviour:
   enemyDamage: 3
   cooldown: 1
   life: 6
-  XP: 20
+  XP: 10
   flashMaterial: {fileID: 2100000, guid: 5fc7f904dcea20347ae97983374de9c1, type: 2}
   duration: 0.1
 --- !u!95 &7724580612693141321
@@ -154,3 +155,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2097773199509542553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7724580612693141318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ab144e6090fc04bb5aa244b9cd691e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootPrefab: {fileID: 8815216649681804739, guid: c0a8261818866d349a84d345349e292e, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: 14807a52096c77342985eeda6aec791a, type: 2}

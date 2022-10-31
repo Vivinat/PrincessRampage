@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3378599074844211202}
   - component: {fileID: 3378599074844211203}
   - component: {fileID: 3378599074844211200}
+  - component: {fileID: -4561163817915629600}
   m_Layer: 0
   m_Name: Golen
   m_TagString: Enemy
@@ -154,3 +155,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-4561163817915629600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378599074844211201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ab144e6090fc04bb5aa244b9cd691e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootPrefab: {fileID: 4105217821566481723, guid: dc86acbd3b234e548b597af5215aa8eb, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: 41a668da87959534f937dec451365b94, type: 2}

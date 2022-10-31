@@ -43,6 +43,7 @@ public class Game_Controller : MonoBehaviour
 
     public static void DamagePlayer(int damage) //Tomei dano
     {
+        AudioManager.instance.PlaySound("PlayerDamage");
         health -= damage;
         Debug.Log("Vida");
         Debug.Log (health);
@@ -92,6 +93,8 @@ public class Game_Controller : MonoBehaviour
     public static void KillPlayer()
     {
         SceneManager.LoadScene("DeathScene");
+        instance = null;
+        AudioManager.instance.StopSound("Battle2");
     }
 
 }

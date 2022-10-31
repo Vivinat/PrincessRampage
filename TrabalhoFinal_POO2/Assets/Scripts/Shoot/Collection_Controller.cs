@@ -31,6 +31,7 @@ public class Collection_Controller : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            AudioManager.instance.PlaySound("CollectSound");
             Game_Controller.HealPlayer(healthChange);
             Game_Controller.MoveSpeedChange(moveSpeedChange);
             Game_Controller.MaxHealthChange(mHealthChange);

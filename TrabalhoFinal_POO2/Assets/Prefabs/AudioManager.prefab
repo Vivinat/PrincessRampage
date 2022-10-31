@@ -75,3 +75,27 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     loop: 1
+  - audioSource: {fileID: 0}
+    name: PlayerDamage
+    clip: {fileID: 8300000, guid: e7ccf4079a6c878419133a7fd85343dd, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: EnemyKill
+    clip: {fileID: 8300000, guid: 693405b2a676b0f41b5cb76b105147a1, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: BulletSound
+    clip: {fileID: 8300000, guid: 3535e4fc669427d469f2992df8d5fe36, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: CollectSound
+    clip: {fileID: 8300000, guid: 12eac414acbc94c4389a94d7e01c80cb, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7589882801743994343}
   - component: {fileID: 7589882801743994342}
   - component: {fileID: 7589882801743994341}
+  - component: {fileID: -5592168721017590323}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -131,7 +132,7 @@ MonoBehaviour:
   enemyDamage: 3
   cooldown: 1
   life: 8
-  XP: 25
+  XP: 10
   flashMaterial: {fileID: 2100000, guid: 5fc7f904dcea20347ae97983374de9c1, type: 2}
   duration: 0.1
 --- !u!95 &7589882801743994341
@@ -154,3 +155,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5592168721017590323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7589882801743994340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ab144e6090fc04bb5aa244b9cd691e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootPrefab: {fileID: 5866561858304264800, guid: 3ed50588f6925ea4a8b3120273934723, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: c8c0e096f1b03d7489313c38c6d1138f, type: 2}

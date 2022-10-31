@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da999d311ea3d5e408cd8d974b3941e7, type: 3}
   m_Name: BootLoot
   m_EditorClassIdentifier: 
-  dropChance: 20
+  dropChance: 5
   lootSprite: {fileID: 21300000, guid: 93a1483e912a9d94a8897c8584d58570, type: 3}

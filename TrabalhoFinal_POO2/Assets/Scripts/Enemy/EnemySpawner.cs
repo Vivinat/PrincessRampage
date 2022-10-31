@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator spawnEnemy(float swarmerInterval, GameObject enemy)
     {
         yield return new WaitForSeconds(swarmerInterval);  //Qual o intervalo de spawn?
-        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-1f,1), Random.Range(-2f,2f),0), Quaternion.identity); 
+        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-1f,1), Random.Range(-1f,1f),0), Quaternion.identity); 
         //Cria o inimigo novo numa posição determinada pelo Vetor
         StartCoroutine(spawnEnemy(swarmerInterval, enemy));    //Existe potencial para ser ilimitado
 

@@ -43,6 +43,7 @@ public class Player_Controller : MonoBehaviour
         }
 
         void Shoot(float x, float y){
+            AudioManager.instance.PlaySound("BulletSound");
             GameObject bullet = Instantiate(BulletPrefab, transform.position,transform.rotation) as GameObject;
             bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(  //Operador ternário vai checar se o x e y são menores que zero

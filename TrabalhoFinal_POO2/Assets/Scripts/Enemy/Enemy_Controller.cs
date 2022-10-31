@@ -105,6 +105,7 @@ public class Enemy_Controller : MonoBehaviour
     {
         GetComponent<LootBag>().InstantiateLoot(transform.position);
         Game_Controller.ExpChange(XP);
+        AudioManager.instance.PlaySound("EnemyKill");
         Destroy(gameObject);
     }
 

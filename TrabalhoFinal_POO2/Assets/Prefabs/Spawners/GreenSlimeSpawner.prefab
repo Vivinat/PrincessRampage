@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swarmerPrefab: {fileID: 4174172287972354873, guid: 8f6ba21352157594fbe0283f2b14b393, type: 3}
-  swarmerInterval: 3.5
+  swarmerInterval: 2.5

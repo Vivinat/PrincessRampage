@@ -132,7 +132,7 @@ MonoBehaviour:
   enemyDamage: 3
   cooldown: 3
   life: 7
-  XP: 25
+  XP: 5
   flashMaterial: {fileID: 2100000, guid: 5fc7f904dcea20347ae97983374de9c1, type: 2}
   duration: 0.1
 --- !u!95 &682626589099415483
