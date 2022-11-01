@@ -542,7 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 2111791363}
-  currentTime: 60
+  currentTime: 30
   countDown: 1
   hasLimit: 1
   timerLimit: 0
@@ -10335,6 +10335,7 @@ MonoBehaviour:
   Playing: Battle2
   ActiveScene: FirstStage
   Song: Battle2
+  Stop: 
 --- !u!1001 &2014513222
 PrefabInstance:
   m_ObjectHideFlags: 0

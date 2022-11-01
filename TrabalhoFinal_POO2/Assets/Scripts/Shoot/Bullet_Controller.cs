@@ -6,18 +6,39 @@ public class Bullet_Controller : MonoBehaviour
 {
     public float lifeTime; 
     private int damage;
+    public bool isEnemyBullet = false;
+
+    private Vector2 lastPos;
+    private Vector2 curPos;
+    private Vector2 playerPos;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(DeathDelay()); //Coroutine para saber quando destruimos a bala
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        damage = Game_Controller.Damage;    //Preciso saber se meu dano mudou
-        
+        if(!isEnemyBullet){
+            damage = Game_Controller.Damage;    //Preciso saber se meu dano mudou
+        }
+        else
+        {
+            curPos = transform.position;
+            transform.position = Vector2.MoveTowards(transform.position, playerPos,5f * Time.deltaTime);
+            if (curPos == lastPos)
+            {
+                Destroy(gameObject);
+            }
+            lastPos = curPos;
+        }
+    }
+
+    public void GetPlayer(Transform player)
+    {
+        playerPos = player.position;
     }
 
     IEnumerator DeathDelay(){
@@ -28,11 +49,16 @@ public class Bullet_Controller : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag == "Enemy"){ //Se minha bala acerta alguma coisa com a tag Enemy
+        if(collider.tag == "Enemy" && !isEnemyBullet){ //Se minha bala acerta alguma coisa com a tag Enemy
             collider.gameObject.GetComponent<Enemy_Controller>().TakeDamage(damage);
             Destroy(gameObject);
         }
         if(collider.tag == "Wall"){ //Se minha bala acerta uma parede
+            Destroy(gameObject);
+        }
+        if(collider.tag == "Player" && isEnemyBullet)
+        {
+            Game_Controller.DamagePlayer(8);
             Destroy(gameObject);
         }
 

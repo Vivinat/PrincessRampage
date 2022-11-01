@@ -10,12 +10,22 @@ public enum EnemyState
     Follow,
     Die,
     Attack
-}
+};
+
+public enum EnemyType
+{
+    Melee,
+    Ranged
+};
+
 
 public class Enemy_Controller : MonoBehaviour
 {
     GameObject player;
     public EnemyState currentState = EnemyState.Follow; //O inimigo sempre sabe onde vocêe está!
+    public EnemyType enemyType;
+
+
     public float speed;         //O quão rápido o inimigo é?
     public float attackRange;   //O quão perto o inimigo tem que estar do player?
     public int enemyDamage;
@@ -23,6 +33,7 @@ public class Enemy_Controller : MonoBehaviour
     public int cooldown;
     public int life;
     public int XP;
+    public GameObject bulletPrefab;
 
     //Quero que o inimigo pisque quando tome dano!
     [SerializeField]
@@ -76,10 +87,24 @@ public class Enemy_Controller : MonoBehaviour
 
     void Attack()
     {
-        if (!cooldownAttack)    //Se não estiver em cooldown
-            Game_Controller.DamagePlayer(enemyDamage);  //Ataque!
-            Debug.Log("Ataquei");
-            StartCoroutine(CoolDown());
+        if (!cooldownAttack)
+        {   
+            switch(enemyType)
+            {
+                case(EnemyType.Melee):
+                    Game_Controller.DamagePlayer(enemyDamage);  //Ataque!
+                    Debug.Log("Ataquei");
+                    StartCoroutine(CoolDown());
+                break;
+                case(EnemyType.Ranged):
+                    GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject;
+                    bullet.GetComponent<Bullet_Controller>().GetPlayer(player.transform);
+                    bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+                    bullet.GetComponent<Bullet_Controller>().isEnemyBullet = true;
+                    StartCoroutine(CoolDown());
+                break;
+            }
+        }
     }
 
     private IEnumerator CoolDown(){
