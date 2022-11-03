@@ -92,9 +92,9 @@ public class Game_Controller : MonoBehaviour
 
     public static void KillPlayer()
     {
+        AudioManager.instance.StopSound("Battle2");
         SceneManager.LoadScene("DeathScene");
         instance = null;
-        AudioManager.instance.StopSound("Battle2");
     }
 
 }

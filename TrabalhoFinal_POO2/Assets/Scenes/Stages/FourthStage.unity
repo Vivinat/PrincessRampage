@@ -401,6 +401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GolenSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 3418878257019149014, guid: 2a7c192a52afc8f4881ef1ca9a9e78a7, type: 3}
+      propertyPath: swarmerInterval
+      value: 3.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a7c192a52afc8f4881ef1ca9a9e78a7, type: 3}
 --- !u!1 &738041103

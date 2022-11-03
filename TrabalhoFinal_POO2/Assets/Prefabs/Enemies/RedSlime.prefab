@@ -127,12 +127,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  speed: 4
+  enemyType: 0
+  speed: 5
   attackRange: 1
   enemyDamage: 1
   cooldown: 3
-  life: 1
+  life: 5
   XP: 5
+  bulletPrefab: {fileID: 0}
   flashMaterial: {fileID: 2100000, guid: 5fc7f904dcea20347ae97983374de9c1, type: 2}
   duration: 0.1
 --- !u!95 &4908753914043869536

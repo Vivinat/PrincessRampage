@@ -13,7 +13,10 @@ public class Player_Controller : MonoBehaviour
     public float BulletSpeed;       //Velocidade da bala
     private float LastFire;         //Quando foi que disparei minha ultima bala?
     public float FireDelay;         //Delay entre os tiros
-    public int currentExp;          //Quanto de XP eu tenho?
+
+    
+    private int currentExp;          //Quanto de XP eu tenho?
+    private int levelCap = 10;
 
 
     void Start()
@@ -49,12 +52,14 @@ public class Player_Controller : MonoBehaviour
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(  //Operador ternário vai checar se o x e y são menores que zero
                 (x < 0) ? Mathf.Floor(x) * BulletSpeed : Mathf.Ceil(x) * BulletSpeed, //Se sim, vamos multiplicar para negativo para ter velocidade constante
                 (y < 0) ? Mathf.Floor(y) * BulletSpeed : Mathf.Ceil(y) * BulletSpeed, //Se não, vamos usar Ceil para subir o valor para inteiro 
-                0 //Não precisamos do Z neste vetor.
+                -1.6f //Não precisamos do Z neste vetor.
             );
         }
 
-        if (currentExp >= 100)
+        if (currentExp >= 100 && levelCap != 0)
         {
+            AudioManager.instance.PlaySound("LevelUp!");
+            levelCap -= 1;
             LevelUp();
         }
     }
@@ -73,7 +78,7 @@ public class Player_Controller : MonoBehaviour
         }
         if (rand == 2)
         {
-            Game_Controller.MoveSpeedChange(2);
+            Game_Controller.MoveSpeedChange(0.05f);
         }
         if (rand == 3)
         {
@@ -81,7 +86,7 @@ public class Player_Controller : MonoBehaviour
         }
         else
         {
-            Game_Controller.FireRateChange(0.05f);
+            Game_Controller.FireRateChange(0.02f);
         }
     }
 

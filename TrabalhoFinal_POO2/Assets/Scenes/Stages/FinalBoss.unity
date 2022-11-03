@@ -10313,10 +10313,10 @@ MonoBehaviour:
   currentState: 0
   enemyType: 1
   speed: 7
-  attackRange: 25
-  enemyDamage: 8
+  attackRange: 30
+  enemyDamage: 10
   cooldown: 1
-  life: 50
+  life: 100
   XP: 100
   bulletPrefab: {fileID: 6178575179728978921, guid: ce62d3a8a753c984d97c5dfa9db77787, type: 3}
   flashMaterial: {fileID: 2100000, guid: 5fc7f904dcea20347ae97983374de9c1, type: 2}
@@ -10468,6 +10468,10 @@ PrefabInstance:
     - target: {fileID: 3004831630285698175, guid: 2a7c192a52afc8f4881ef1ca9a9e78a7, type: 3}
       propertyPath: m_Name
       value: GolenSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418878257019149014, guid: 2a7c192a52afc8f4881ef1ca9a9e78a7, type: 3}
+      propertyPath: swarmerInterval
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a7c192a52afc8f4881ef1ca9a9e78a7, type: 3}

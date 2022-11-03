@@ -99,3 +99,9 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     loop: 0
+  - audioSource: {fileID: 0}
+    name: LevelUp!
+    clip: {fileID: 8300000, guid: 66637fd7cc168e641a060cc9e0d58823, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
