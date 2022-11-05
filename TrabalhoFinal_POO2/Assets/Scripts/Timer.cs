@@ -14,12 +14,59 @@ public class Timer : MonoBehaviour
     public bool hasLimit = true;       //Temos um limite?
     public float timerLimit = 10f;    //Se tivermos, qual?
     public string nextStage;
+    private int timeSpawn = 10;
+    private int SpawnFlag = 1;
+
+    public GameObject RedSlimeSpawn;
+    public GameObject GrSlimeSpawn;
+    public GameObject GoblinSpawn;
+    public GameObject OrSlimeSpawn;
+    public GameObject SkeletonSpawn;
+    public GameObject MushroomSpawn;
+    public GameObject GolenSpawn;
+    public GameObject WitchSpawn;
 
     // Update is called once per frame
     void Update()
     {
         //Operador ternário
         currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
+
+        if (SceneManager.GetActiveScene().name == "Endless_Mode")
+        {
+            if (currentTime >= timeSpawn && SpawnFlag == 1)
+            {
+                RedSlimeSpawn.SetActive(true);
+                GrSlimeSpawn.SetActive(true);
+                GoblinSpawn.SetActive(true);
+                timeSpawn += 15;
+                SpawnFlag += 1;
+            }
+            if (currentTime >= timeSpawn && SpawnFlag == 2)
+            {
+                OrSlimeSpawn.SetActive(true);
+                SkeletonSpawn.SetActive(true);
+                MushroomSpawn.SetActive(true);
+                timeSpawn += 15;
+                SpawnFlag += 1;
+            }
+            if (currentTime >= timeSpawn && SpawnFlag == 3)
+            {
+                GolenSpawn.SetActive(true);
+                timeSpawn += 15;
+                SpawnFlag += 1;
+            }
+            if (currentTime >= timeSpawn && SpawnFlag == 4)
+            {
+                WitchSpawn.SetActive(true);
+                timeSpawn += 15;
+                SpawnFlag += 1;
+            }
+            else
+            {
+                
+            }
+        }
 
         //Precisamos saber se estamos decrescendo o timer ou acrescendo
         if (hasLimit && ((countDown && currentTime <= timerLimit) || (!countDown && currentTime >= timerLimit)))

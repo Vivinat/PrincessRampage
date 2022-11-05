@@ -20,6 +20,13 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("Story_Intro");
     }
 
+    public void PlayEndlessMode()
+    {
+        Debug.Log("Endless Mode");
+        AudioManager.instance.StopSound("Menu");
+        SceneManager.LoadScene("Endless_Mode");
+    }
+
     public void QuitGame()              //Sai do jogo
     {
         Debug.Log("Saiu");
