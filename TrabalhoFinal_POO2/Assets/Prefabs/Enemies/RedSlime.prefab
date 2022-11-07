@@ -133,7 +133,7 @@ MonoBehaviour:
   enemyDamage: 1
   cooldown: 3
   life: 3
-  XP: 5
+  XP: 15
   bulletPrefab: {fileID: 0}
   flashMaterial: {fileID: 2100000, guid: 5fc7f904dcea20347ae97983374de9c1, type: 2}
   duration: 0.1

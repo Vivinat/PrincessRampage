@@ -132,7 +132,7 @@ MonoBehaviour:
   attackRange: 1
   enemyDamage: 1
   cooldown: 3
-  life: 12
+  life: 8
   XP: 5
   bulletPrefab: {fileID: 0}
   flashMaterial: {fileID: 2100000, guid: 5fc7f904dcea20347ae97983374de9c1, type: 2}

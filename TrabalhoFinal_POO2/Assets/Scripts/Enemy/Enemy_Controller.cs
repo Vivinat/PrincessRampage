@@ -25,7 +25,6 @@ public class Enemy_Controller : MonoBehaviour
     public EnemyState currentState = EnemyState.Follow; //O inimigo sempre sabe onde vocêe está!
     public EnemyType enemyType;
 
-
     public float speed;         //O quão rápido o inimigo é?
     public float attackRange;   //O quão perto o inimigo tem que estar do player?
     public int enemyDamage;
@@ -129,6 +128,7 @@ public class Enemy_Controller : MonoBehaviour
     public void Die()
     {
         GetComponent<LootBag>().InstantiateLoot(transform.position);
+        //ProgressBar.Increment(XP);
         Game_Controller.ExpChange(XP);
         AudioManager.instance.PlaySound("EnemyKill");
         Destroy(gameObject);
