@@ -23,8 +23,6 @@ public class Collection_Controller : MonoBehaviour
     void Start()
     {
         GetComponent<SpriteRenderer>().sprite = item.itemImage; 
-        Destroy(GetComponent<PolygonCollider2D>());
-        gameObject.AddComponent<PolygonCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) //Se player colidir com o item

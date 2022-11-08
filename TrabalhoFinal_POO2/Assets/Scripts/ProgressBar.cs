@@ -20,7 +20,7 @@ public class ProgressBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Increment(101);
+        //Increment(101);
     }
 
     // Update is called once per frame
@@ -39,6 +39,7 @@ public class ProgressBar : MonoBehaviour
 
     public void Increment(int newProgress)
     {
+        print("Tome XP");
        target = (int)slider.value + newProgress;
     }
 }

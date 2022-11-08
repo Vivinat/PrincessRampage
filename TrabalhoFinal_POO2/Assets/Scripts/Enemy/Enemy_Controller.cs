@@ -46,10 +46,13 @@ public class Enemy_Controller : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Material originalMaterial;
     private Coroutine flashRoutine;
+
+    private ProgressBar progressBar; 
     
     // Start is called before the first frame update
     void Start()
     {
+        progressBar = FindObjectOfType<ProgressBar>();
         player = GameObject.FindGameObjectWithTag("Player");    //Procure o player
         spriteRenderer = GetComponent<SpriteRenderer>();        //Pegue o renderizador do inimigo
         originalMaterial = spriteRenderer.material;             
@@ -64,6 +67,7 @@ public class Enemy_Controller : MonoBehaviour
             Follow();
             break;
             case(EnemyState.Die):
+            Die();
             break;
             case(EnemyState.Attack):
             Attack();
@@ -129,8 +133,10 @@ public class Enemy_Controller : MonoBehaviour
 
     public void Die()
     {
+        currentState = EnemyState.Die;
         GetComponent<LootBag>().InstantiateLoot(transform.position);    //Na posição em que ele se encontra, o loot é instanciado
         Game_Controller.ExpChange(XP);
+        progressBar.Increment(XP);
         AudioManager.instance.PlaySound("EnemyKill");
         Destroy(gameObject);
     }

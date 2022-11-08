@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8815216649681804766}
   - component: {fileID: 8815216649681804737}
   - component: {fileID: 8815216649681804736}
+  - component: {fileID: -8339079342119151612}
   m_Layer: 0
   m_Name: MaxHealthBuff
   m_TagString: Untagged
@@ -91,8 +92,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1909664609
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0f40bfe53ec48684c80ee34d33f465bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,3 +122,34 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!60 &-8339079342119151612
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815216649681804739}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.5}
+      - {x: -0.5, y: -0.375}
+      - {x: -0.4375, y: -0.5}
+      - {x: 0.4375, y: -0.5}
+      - {x: 0.5, y: -0.3125}
+      - {x: 0.5, y: 0.5}
