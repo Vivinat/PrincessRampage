@@ -303,7 +303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425828424245053284, guid: 9931661bccca0d74490e00816cc5349f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 425828424245053287, guid: 9931661bccca0d74490e00816cc5349f, type: 3}
       propertyPath: m_RootOrder
@@ -590,7 +590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1045605750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -625,6 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edc292defce47345bd31cda01be9842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 1045605752}
   FillSpeed: 0.5
 --- !u!114 &1045605752
 MonoBehaviour:
@@ -768,7 +769,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -840,7 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 2111791363}
-  currentTime: 60
+  currentTime: 30
   countDown: 1
   hasLimit: 1
   timerLimit: 0
@@ -10653,17 +10654,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoblinSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 1966342600271674320, guid: 559189e1e67c68c4fb36ff78d4e3d7dd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8296698112947403331, guid: 559189e1e67c68c4fb36ff78d4e3d7dd, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8296698112947403331, guid: 559189e1e67c68c4fb36ff78d4e3d7dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.24
+      value: -9.12
       objectReference: {fileID: 0}
     - target: {fileID: 8296698112947403331, guid: 559189e1e67c68c4fb36ff78d4e3d7dd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10671,7 +10668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8296698112947403331, guid: 559189e1e67c68c4fb36ff78d4e3d7dd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.8951435
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: 8296698112947403331, guid: 559189e1e67c68c4fb36ff78d4e3d7dd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10760,7 +10757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8996985063016697420, guid: 25f969d743b3db848be615267b5b6789, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f969d743b3db848be615267b5b6789, type: 3}

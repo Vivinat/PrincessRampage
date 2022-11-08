@@ -16,6 +16,7 @@ public class CountManager : MonoBehaviour
         if (count < deadline)
         {
             count += Time.deltaTime;
+            //Este script basicamente deixa o player um tempinho numa cena e começa a contar até dar tp para proxima cena
         }
         else
         {

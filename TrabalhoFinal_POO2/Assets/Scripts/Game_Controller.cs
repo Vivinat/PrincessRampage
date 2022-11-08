@@ -71,7 +71,7 @@ public class Game_Controller : MonoBehaviour
         moveSpeed += speed;
     }
 
-    public static void ExpChange(int xp)
+    public static void ExpChange(int xp)                //Ganhei XP
     {
         if (exp >= 100)
         {
@@ -90,11 +90,11 @@ public class Game_Controller : MonoBehaviour
         damage += dam;
     }
 
-    public static void KillPlayer()
+    public static void KillPlayer() 	                //Morri
     {
         AudioManager.instance.StopSound("Battle2");
         SceneManager.LoadScene("DeathScene");
-        instance = null;
+        instance = null;                                //Como somos levados para o menu, tenho que nullificar a instancia para a proxima run
     }
 
 }

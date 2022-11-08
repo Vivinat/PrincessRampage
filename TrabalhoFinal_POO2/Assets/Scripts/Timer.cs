@@ -17,6 +17,7 @@ public class Timer : MonoBehaviour
     private int timeSpawn = 10;
     private int SpawnFlag = 1;
 
+    //Queria ter feito um vetor de spawners, mas o unity tava chorando demais
     public GameObject RedSlimeSpawn;
     public GameObject GrSlimeSpawn;
     public GameObject GoblinSpawn;
@@ -32,9 +33,9 @@ public class Timer : MonoBehaviour
         //Operador ternário
         currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
 
-        if (SceneManager.GetActiveScene().name == "Endless_Mode")
+        if (SceneManager.GetActiveScene().name == "Endless_Mode")   //Se voce estiver no endless
         {
-            if (currentTime >= timeSpawn && SpawnFlag == 1)
+            if (currentTime >= timeSpawn && SpawnFlag == 1) //Ligue estes spawners e set a flag para que este comando não se repita
             {
                 RedSlimeSpawn.SetActive(true);
                 GrSlimeSpawn.SetActive(true);
@@ -75,19 +76,19 @@ public class Timer : MonoBehaviour
             SetTimerText();
             timerText.color = Color.red;
 
-            GameObject[] spawn = GameObject.FindGameObjectsWithTag("Spawner");
+            GameObject[] spawn = GameObject.FindGameObjectsWithTag("Spawner");  //Quando tempo acaba, spawners são destruidos
             foreach(GameObject spa in spawn){
                 Destroy(spa);
             }
 
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");  //E os inimigos também
             foreach(GameObject ene in enemies){
                 Destroy(ene);
             }
 
             if (Input.GetKey(KeyCode.Space))
             {
-                SceneManager.LoadScene(nextStage);    
+                SceneManager.LoadScene(nextStage);  //Coloquei essa key de precaução, por que aconteceu uma vez do tp não funfar  
             }
 
             SceneManager.LoadScene(nextStage);
@@ -96,7 +97,7 @@ public class Timer : MonoBehaviour
         SetTimerText();
     }
 
-    private void SetTimerText()
+    private void SetTimerText()     //Converse com o texto na UI
     {
         timerText.text = currentTime.ToString("0.00");
     }

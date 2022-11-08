@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 //Usaremos uma máquina finita de estados
@@ -14,6 +15,7 @@ public enum EnemyState
 
 public enum EnemyType
 {
+    //Qual o tipo dele?
     Melee,
     Ranged
 };
@@ -95,11 +97,11 @@ public class Enemy_Controller : MonoBehaviour
                     Debug.Log("Ataquei");
                     StartCoroutine(CoolDown());
                 break;
-                case(EnemyType.Ranged):
-                    GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject;
+                case(EnemyType.Ranged): //Se for ranged
+                    GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject;   //Instancie uma bala
                     bullet.GetComponent<Bullet_Controller>().GetPlayer(player.transform);
                     bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
-                    bullet.GetComponent<Bullet_Controller>().isEnemyBullet = true;
+                    bullet.GetComponent<Bullet_Controller>().isEnemyBullet = true;  //Precisamos diferenciar as balas do player e do inimigo!
                     StartCoroutine(CoolDown());
                 break;
             }
@@ -127,8 +129,7 @@ public class Enemy_Controller : MonoBehaviour
 
     public void Die()
     {
-        GetComponent<LootBag>().InstantiateLoot(transform.position);
-        //ProgressBar.Increment(XP);
+        GetComponent<LootBag>().InstantiateLoot(transform.position);    //Na posição em que ele se encontra, o loot é instanciado
         Game_Controller.ExpChange(XP);
         AudioManager.instance.PlaySound("EnemyKill");
         Destroy(gameObject);

@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeaecd8d7c0f88242beb252b827500f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadline: 3
+  deadline: 7
   scene: FirstStage
 --- !u!1 &1579881474
 GameObject:

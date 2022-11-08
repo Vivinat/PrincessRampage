@@ -14,9 +14,10 @@ public class FinalBossDie : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // Como não tem timer no estagio final, precisamos saber quando a bruxa morre
     void Update()
     {
+        //Se ela é null, significa que morreu
         if (finalboss == null)
         {
             GameObject[] spawn = GameObject.FindGameObjectsWithTag("Spawner");
@@ -28,7 +29,7 @@ public class FinalBossDie : MonoBehaviour
                 Destroy(ene);
             }
             AudioManager.instance.StopSound("Final_Boss");
-            SceneManager.LoadScene(nextStage);
+            SceneManager.LoadScene(nextStage);  //Leva pra proxima cena
         }
     }
 }

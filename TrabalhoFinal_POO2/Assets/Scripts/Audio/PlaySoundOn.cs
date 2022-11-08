@@ -11,6 +11,8 @@ public class PlaySoundOn : MonoBehaviour
     public string Song;
     public string Stop;
 
+    //Esse script vai tocar o som desejado e parar qualquer outro som que esteja sendo tocado
+
     private void Start()
     {
         if (!(AudioManager.instance.IsPlaying(Playing)) && SceneManager.GetActiveScene().name == ActiveScene)

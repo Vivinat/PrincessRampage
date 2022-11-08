@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Manda o inimigo e o tempo de summon
         StartCoroutine(spawnEnemy(swarmerInterval, swarmerPrefab));
     }
 

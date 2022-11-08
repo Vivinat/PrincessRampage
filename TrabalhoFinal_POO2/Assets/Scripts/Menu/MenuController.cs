@@ -15,12 +15,12 @@ public class MenuController : MonoBehaviour
 
     public void PlayGame()
     {
-        Debug.Log("Load game");
+        Debug.Log("Load game");         //Clicou no botão Jogar
         AudioManager.instance.StopSound("Menu");
         SceneManager.LoadScene("Story_Intro");
     }
 
-    public void PlayEndlessMode()
+    public void PlayEndlessMode()       //Clicou no Endless
     {
         Debug.Log("Endless Mode");
         AudioManager.instance.StopSound("Menu");
@@ -33,7 +33,7 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
 
-    private void Start()
+    private void Start()                //Se eu estiver no Menu, toque a musica do menu
     {
         if (!(AudioManager.instance.IsPlaying("Menu")) && SceneManager.GetActiveScene().name == "Menu")
         {

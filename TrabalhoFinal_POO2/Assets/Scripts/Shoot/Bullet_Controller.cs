@@ -21,13 +21,13 @@ public class Bullet_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isEnemyBullet){
+        if(!isEnemyBullet){         //Se eu não sou uma bala inimiga
             damage = Game_Controller.Damage;    //Preciso saber se meu dano mudou
         }
         else
         {
-            curPos = transform.position;
-            transform.position = Vector2.MoveTowards(transform.position, playerPos,5f * Time.deltaTime);
+            curPos = transform.position;        //Se eu for uma bala inimiga
+            transform.position = Vector2.MoveTowards(transform.position, playerPos,5f * Time.deltaTime);    //Atira na direção do player
             if (curPos == lastPos)
             {
                 Destroy(gameObject);
@@ -49,16 +49,16 @@ public class Bullet_Controller : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag == "Enemy" && !isEnemyBullet){ //Se minha bala acerta alguma coisa com a tag Enemy
-            collider.gameObject.GetComponent<Enemy_Controller>().TakeDamage(damage);
+        if(collider.tag == "Enemy" && !isEnemyBullet){                                  //Se minha bala acerta alguma coisa com a tag Enemy
+            collider.gameObject.GetComponent<Enemy_Controller>().TakeDamage(damage);    //Essa coisa toma dano
             Destroy(gameObject);
         }
         if(collider.tag == "Wall"){ //Se minha bala acerta uma parede
-            Destroy(gameObject);
+            Destroy(gameObject);    //Minha bala é destruída
         }
-        if(collider.tag == "Player" && isEnemyBullet)
+        if(collider.tag == "Player" && isEnemyBullet)   //Se eu sou um inimigo e acerto o player
         {
-            Game_Controller.DamagePlayer(8);
+            Game_Controller.DamagePlayer(10);            //Ele toma dano
             Destroy(gameObject);
         }
 
