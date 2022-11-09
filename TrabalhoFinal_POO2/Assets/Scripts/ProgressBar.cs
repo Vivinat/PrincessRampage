@@ -10,7 +10,7 @@ public class ProgressBar : MonoBehaviour
     [SerializeField]
     private Slider slider;
     public float FillSpeed = 0.5f;
-    private int target = 100;
+    private int target = 0;
 
     private void Awake()
     {

@@ -53,6 +53,9 @@ TagManager:
   - name: Bullet
     uniqueID: 2635897273
     locked: 0
+  - name: Itens
+    uniqueID: 2596935817
+    locked: 0
   - name: Player
     uniqueID: 2385302687
     locked: 0
