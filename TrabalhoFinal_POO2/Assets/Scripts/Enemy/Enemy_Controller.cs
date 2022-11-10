@@ -84,6 +84,7 @@ public class Enemy_Controller : MonoBehaviour
         }
 
     }
+
     //Segue o player
     void Follow()
     {
@@ -127,16 +128,15 @@ public class Enemy_Controller : MonoBehaviour
         life -= damage; 
         if (life <= 0)
         {
-            Die();
+            currentState = EnemyState.Die;
         }
     }
 
     public void Die()
     {
-        currentState = EnemyState.Die;
         GetComponent<LootBag>().InstantiateLoot(transform.position);    //Na posição em que ele se encontra, o loot é instanciado
         Game_Controller.ExpChange(XP);
-        progressBar.Increment(XP);
+        //progressBar.Increment(XP);                       //ATENÇAO: SE NAO TIVER A BARRA DE XP NO CENARIO, ESTE COMANDO QUEBRA O GAME
         AudioManager.instance.PlaySound("EnemyKill");
         Destroy(gameObject);
     }
