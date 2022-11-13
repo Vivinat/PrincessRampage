@@ -36,8 +36,6 @@ public class Collection_Controller : MonoBehaviour
             Game_Controller.DamageChange(DamChange);
             Destroy(gameObject);
         }
-
-
     }
 
 

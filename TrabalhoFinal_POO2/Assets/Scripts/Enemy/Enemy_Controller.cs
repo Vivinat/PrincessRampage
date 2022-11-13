@@ -136,10 +136,12 @@ public class Enemy_Controller : MonoBehaviour
     {
         GetComponent<LootBag>().InstantiateLoot(transform.position);    //Na posição em que ele se encontra, o loot é instanciado
         Game_Controller.ExpChange(XP);
-        //progressBar.Increment(XP);                       //ATENÇAO: SE NAO TIVER A BARRA DE XP NO CENARIO, ESTE COMANDO QUEBRA O GAME
+        progressBar.Increment(XP);                             //ATENÇAO: SE NAO TIVER A BARRA DE XP NO CENARIO, ESTE COMANDO QUEBRA O GAME
         AudioManager.instance.PlaySound("EnemyKill");
         Destroy(gameObject);
     }
+
+
 
     //Tomei dano e agora vou piscar
     private IEnumerator FlashRoutine()

@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 //Aqui está uma das Design Patterns: Singleton!
 public class Game_Controller : MonoBehaviour
 {
+
+
     //Por ser static, os status do player estão em um unico valor, sem serem replicados
     //Nós queremos inicializa-los apenas uma vez!
-    public static Game_Controller instance;
-
     private static int health = 10;
     private static int maxHealth = 10;
     private static float fireRate = 0.5f;
@@ -30,25 +30,30 @@ public class Game_Controller : MonoBehaviour
     public static float MoveSpeed {get => moveSpeed; set => moveSpeed = value;}
     public static int Exp {get => exp; set => exp = value;}
 
+    public static Game_Controller instance; 
 
     private void Awake(){
 
-        if(instance == null)
+        if (instance == null)
         {
+            print("Nova instancia");
             instance = this;
+        }else{
+            print("Intancia velha destruida");
+            Destroy(gameObject);
         }
-
+        DontDestroyOnLoad(gameObject);
     }
     //Uma vez inicializado, podemos chamar Game_Controller em qualquer lugar do jogo!
 
     public static void DamagePlayer(int damage) //Tomei dano
     {
         AudioManager.instance.PlaySound("PlayerDamage");
-        health -= damage;
+        Health -= damage;
         Debug.Log("Vida");
-        Debug.Log (health);
+        Debug.Log (Health);
 
-        if(health <= 0)     //Dano zerou minha vida
+        if(Health <= 0)     //Dano zerou minha vida
         {
             KillPlayer();
         }
@@ -90,11 +95,11 @@ public class Game_Controller : MonoBehaviour
         damage += dam;
     }
 
-    public static void KillPlayer() 	                //Morri
+    public static void KillPlayer() //Morri
     {
         AudioManager.instance.StopSound("Battle2");
         SceneManager.LoadScene("DeathScene");
-        instance = null;                                //Como somos levados para o menu, tenho que nullificar a instancia para a proxima run
+        Health = 10;
     }
 
 }

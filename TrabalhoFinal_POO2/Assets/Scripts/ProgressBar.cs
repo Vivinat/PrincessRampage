@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class ProgressBar : MonoBehaviour
 {
@@ -12,9 +12,20 @@ public class ProgressBar : MonoBehaviour
     public float FillSpeed = 0.5f;
     private int target = 0;
 
+    public static ProgressBar instance; 
+
     private void Awake()
     {
-        slider = gameObject.GetComponent<Slider>();
+        if (instance == null && (SceneManager.GetActiveScene().name == "FirstStage"))
+        {
+            print("Nova instancia da barra de progresso");
+            instance = this;
+            slider = gameObject.GetComponent<Slider>();
+        }else{
+            print("Instancia velha da barra de progresso destruida");
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
@@ -35,11 +46,16 @@ public class ProgressBar : MonoBehaviour
             slider.value = 0f;
             target = 0;
         }
+
+        if (SceneManager.GetActiveScene().name == "DeathScene")
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Increment(int newProgress)
     {
         print("Tome XP");
-       target = (int)slider.value + newProgress;
+        target = (int)slider.value + newProgress;
     }
 }
