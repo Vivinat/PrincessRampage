@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    //RedSlimeSpawn.SetActive(true);
 
     public TextMeshProUGUI timerText;
     public float currentTime = 0f;   //Tempo atual
@@ -26,6 +25,11 @@ public class Timer : MonoBehaviour
     public GameObject MushroomSpawn;
     public GameObject GolenSpawn;
     public GameObject WitchSpawn;
+
+    void Start()
+    {
+        timerText = GameObject.Find("Timer").GetComponent<TextMeshProUGUI>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -74,7 +78,6 @@ public class Timer : MonoBehaviour
         {
             currentTime = timerLimit;
             SetTimerText();
-            timerText.color = Color.red;
 
             GameObject[] spawn = GameObject.FindGameObjectsWithTag("Spawner");  //Quando tempo acaba, spawners são destruidos
             foreach(GameObject spa in spawn){

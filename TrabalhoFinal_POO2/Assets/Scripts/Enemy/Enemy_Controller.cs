@@ -47,11 +47,13 @@ public class Enemy_Controller : MonoBehaviour
     private Material originalMaterial;
     private Coroutine flashRoutine;
 
-    private ProgressBar progressBar; 
+    private ProgressBar progressBar;
+    private Game_Controller gameController;   
     
     // Start is called before the first frame update
     void Start()
     {
+        gameController = FindObjectOfType<Game_Controller>();
         progressBar = FindObjectOfType<ProgressBar>();
         player = GameObject.FindGameObjectWithTag("Player");    //Procure o player
         spriteRenderer = GetComponent<SpriteRenderer>();        //Pegue o renderizador do inimigo
@@ -98,8 +100,7 @@ public class Enemy_Controller : MonoBehaviour
             switch(enemyType)
             {
                 case(EnemyType.Melee):
-                    Game_Controller.DamagePlayer(enemyDamage);  //Ataque!
-                    Debug.Log("Ataquei");
+                    gameController.DamagePlayer(enemyDamage);  //Ataque!
                     StartCoroutine(CoolDown());
                 break;
                 case(EnemyType.Ranged): //Se for ranged
@@ -114,10 +115,8 @@ public class Enemy_Controller : MonoBehaviour
     }
 
     private IEnumerator CoolDown(){
-        Debug.Log("Entrei em cooldown");
         cooldownAttack = true;      
         yield return new WaitForSeconds(cooldown);
-        Debug.Log("Posso atacar de novo");
         cooldownAttack = false; 
     }
 
@@ -135,7 +134,7 @@ public class Enemy_Controller : MonoBehaviour
     public void Die()
     {
         GetComponent<LootBag>().InstantiateLoot(transform.position);    //Na posição em que ele se encontra, o loot é instanciado
-        Game_Controller.ExpChange(XP);
+        gameController.ExpChange(XP);
         progressBar.Increment(XP);                             //ATENÇAO: SE NAO TIVER A BARRA DE XP NO CENARIO, ESTE COMANDO QUEBRA O GAME
         AudioManager.instance.PlaySound("EnemyKill");
         Destroy(gameObject);

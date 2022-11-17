@@ -11,10 +11,12 @@ public class Bullet_Controller : MonoBehaviour
     private Vector2 lastPos;
     private Vector2 curPos;
     private Vector2 playerPos;
+    private Game_Controller gameController;   
 
     // Start is called before the first frame update
     void Start()
     {
+        gameController = FindObjectOfType<Game_Controller>();
         StartCoroutine(DeathDelay()); //Coroutine para saber quando destruimos a bala
     }
 
@@ -22,7 +24,7 @@ public class Bullet_Controller : MonoBehaviour
     void Update()
     {
         if(!isEnemyBullet){         //Se eu não sou uma bala inimiga
-            damage = Game_Controller.Damage;    //Preciso saber se meu dano mudou
+            damage = gameController.Damage;    //Preciso saber se meu dano mudou
         }
         else
         {
@@ -58,7 +60,7 @@ public class Bullet_Controller : MonoBehaviour
         }
         if(collider.tag == "Player" && isEnemyBullet)   //Se eu sou um inimigo e acerto o player
         {
-            Game_Controller.DamagePlayer(10);            //Ele toma dano
+            gameController.DamagePlayer(10);            //Ele toma dano
             Destroy(gameObject);
         }
 

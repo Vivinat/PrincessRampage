@@ -17,11 +17,13 @@ public class Collection_Controller : MonoBehaviour
     public float moveSpeedChange;
     public int mHealthChange;
     public int DamChange;
+    private Game_Controller gameController;   
 
 
     // Start is called before the first frame update
     void Start()
     {
+        gameController = FindObjectOfType<Game_Controller>();
         GetComponent<SpriteRenderer>().sprite = item.itemImage; 
     }
 
@@ -30,10 +32,10 @@ public class Collection_Controller : MonoBehaviour
         if (collision.tag == "Player")
         {
             AudioManager.instance.PlaySound("CollectSound");
-            Game_Controller.HealPlayer(healthChange);      //Modifique essas coisas
-            Game_Controller.MoveSpeedChange(moveSpeedChange);
-            Game_Controller.MaxHealthChange(mHealthChange);
-            Game_Controller.DamageChange(DamChange);
+            gameController.HealPlayer(healthChange);      //Modifique essas coisas
+            gameController.MoveSpeedChange(moveSpeedChange);
+            gameController.MaxHealthChange(mHealthChange);
+            gameController.DamageChange(DamChange);
             Destroy(gameObject);
         }
     }

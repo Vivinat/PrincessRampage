@@ -14,20 +14,6 @@ public class ProgressBar : MonoBehaviour
 
     public static ProgressBar instance; 
 
-    private void Awake()
-    {
-        if (instance == null && (SceneManager.GetActiveScene().name == "FirstStage"))
-        {
-            print("Nova instancia da barra de progresso");
-            instance = this;
-            slider = gameObject.GetComponent<Slider>();
-        }else{
-            print("Instancia velha da barra de progresso destruida");
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
-    }
-
     // Start is called before the first frame update
     void Start()
     {

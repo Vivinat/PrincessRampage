@@ -17,10 +17,12 @@ public class Player_Controller : MonoBehaviour
     
     private int currentExp;          //Quanto de XP eu tenho?
     private int levelCap = 10;
+    private Game_Controller gameController;   
 
 
     void Start()
     {
+        gameController = FindObjectOfType<Game_Controller>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -28,9 +30,9 @@ public class Player_Controller : MonoBehaviour
     // Update é chamada uma vez por frame
     void Update(){
 
-        FireDelay = Game_Controller.FireRate;
-        MovementSpeed = Game_Controller.MoveSpeed;
-        currentExp = Game_Controller.Exp;
+        FireDelay = gameController.FireRate;
+        MovementSpeed = gameController.MoveSpeed;
+        currentExp = gameController.Exp;
 
         movement.x = Input.GetAxisRaw("Horizontal"); //Verifica a posição do player na horizontal e retorna um valor
         movement.y = Input.GetAxisRaw("Vertical");
@@ -68,25 +70,25 @@ public class Player_Controller : MonoBehaviour
     void LevelUp()
     {
         currentExp = 0;
-        Game_Controller.Exp = 0;
+        gameController.Exp = 0;
         Debug.Log ("LEVEL UP");
         int rand = Random.Range(1,5);
         Debug.Log (rand);
         if (rand == 1)
         {
-            Game_Controller.MaxHealthChange(2);
+            gameController.MaxHealthChange(2);
         }
         if (rand == 2)
         {
-            Game_Controller.MoveSpeedChange(0.05f);
+            gameController.MoveSpeedChange(0.05f);
         }
         if (rand == 3)
         {
-            Game_Controller.DamageChange(2);
+            gameController.DamageChange(2);
         }
         else
         {
-            Game_Controller.FireRateChange(0.02f);
+            gameController.FireRateChange(0.02f);
         }
     }
 
