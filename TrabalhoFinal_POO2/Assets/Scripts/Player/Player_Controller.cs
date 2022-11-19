@@ -54,7 +54,7 @@ public class Player_Controller : MonoBehaviour
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(  //Operador ternário vai checar se o x e y são menores que zero
                 (x < 0) ? Mathf.Floor(x) * BulletSpeed : Mathf.Ceil(x) * BulletSpeed, //Se sim, vamos multiplicar para negativo para ter velocidade constante
                 (y < 0) ? Mathf.Floor(y) * BulletSpeed : Mathf.Ceil(y) * BulletSpeed, //Se não, vamos usar Ceil para subir o valor para inteiro 
-                -1.6f //Não precisamos do Z neste vetor.
+                0 //Não precisamos do Z neste vetor.
             );
         }
 
