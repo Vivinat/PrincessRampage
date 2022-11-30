@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   enemyType: 0
-  speed: 5
+  speed: 3
   attackRange: 1
   enemyDamage: 1
   cooldown: 3

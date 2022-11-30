@@ -58,6 +58,7 @@ public class Game_Controller : MonoBehaviour
     }
     //Uma vez inicializado, podemos chamar Game_Controller em qualquer lugar do jogo!
 
+
     public void DamagePlayer(int damage) //Tomei dano
     {
         AudioManager.instance.PlaySound("PlayerDamage");
