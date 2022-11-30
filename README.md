@@ -18,6 +18,8 @@ ou numa build separada.
     <img width="2%" src="/TrabalhoFinal_POO2/Assets/Player_Sprites/Bald.png">
 </p>
 
+
+
 Após ter sido amaldiçoada por uma bruxa com um problema capilar (Careca), a princesa Phillima precisa realizar um ritual para impedir que seus belos cabelos caiam!
 Use da magia da princesa para abater os asseclas da bruxa, e acabe com ela para finalizar o ritual!
 Além das mecânicas de disparo, o jogo conta com as seguintes mecânicas:
