@@ -14,6 +14,11 @@ public class Game_Controller : MonoBehaviour
     //Nós queremos inicializa-los apenas uma vez!
     private int health = 10;
     private int maxHealth = 10;
+    [SerializeField] Image heart1;
+    [SerializeField] Image heart2;
+    [SerializeField] Image heart3;
+    [SerializeField] Image heart4;
+    [SerializeField] Image heart5;
     private float fireRate = 0.5f;
     private int damage = 1;
     private float moveSpeed = 5f;
@@ -64,6 +69,34 @@ public class Game_Controller : MonoBehaviour
         AudioManager.instance.PlaySound("PlayerDamage");
         Health -= damage;
         healthText.text = Health.ToString();
+        // remover coração:
+
+        if (Health < 9)
+        {
+            heart5.enabled = false;
+        }
+
+        if (Health < 7)
+        {
+            heart4.enabled = false;
+        }
+
+        if (Health < 5)
+        {
+            heart3.enabled = false;
+        }
+
+        if (Health < 3)
+        {
+            heart2.enabled = false;
+        }
+
+        if (Health < 1)
+        {
+            heart1.enabled = false;
+        }
+
+        // fim remove coração
 
         if(Health <= 0)     //Dano zerou minha vida
         {
@@ -110,7 +143,7 @@ public class Game_Controller : MonoBehaviour
     {
         AudioManager.instance.StopSound("Battle2");
         SceneManager.LoadScene("DeathScene");
-        Health = 10;
+        health = 10;
     }
 
 }
