@@ -41,25 +41,13 @@ public class Game_Controller : MonoBehaviour
 
     private void Start()
     {
+        print("GAME_CONTROLLERS: " + FindObjectsOfType<Game_Controller>().Length);
         healthText = GameObject.FindWithTag("HealthText").GetComponent<TextMeshProUGUI>();
         healthText.text = Health.ToString();
     }
 
     private void Awake(){
-        if (FindObjectsOfType<Game_Controller>().Length > 1)
-        {
-            Destroy(gameObject);
-        }else{
-            DontDestroyOnLoad(gameObject);
-        }
-        // if (instance == null)
-        // {
-        //     print("Nova instancia");
-        //     instance = this;
-        // }else{
-        //     print("Instancia velha destruida");
-        //     Destroy(gameObject);
-        // }   
+        DontDestroyOnLoad(gameObject);   
     }
     //Uma vez inicializado, podemos chamar Game_Controller em qualquer lugar do jogo!
 
@@ -144,6 +132,7 @@ public class Game_Controller : MonoBehaviour
         AudioManager.instance.StopSound("Battle2");
         SceneManager.LoadScene("DeathScene");
         health = 10;
+        Destroy(gameObject);
     }
 
 }
