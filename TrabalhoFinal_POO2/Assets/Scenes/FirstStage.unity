@@ -175,20 +175,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 951923381710747329, guid: 1f9d457cb7c15c644b62c79ccdb1f249, type: 3}
-      propertyPath: m_Color.b
-      value: 1
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 951923381710747329, guid: 1f9d457cb7c15c644b62c79ccdb1f249, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 951923381710747329, guid: 1f9d457cb7c15c644b62c79ccdb1f249, type: 3}
-      propertyPath: m_Color.r
-      value: 1
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6178575179728978921, guid: 1f9d457cb7c15c644b62c79ccdb1f249, type: 3}
       propertyPath: m_Name
       value: Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178575179728978921, guid: 1f9d457cb7c15c644b62c79ccdb1f249, type: 3}
+      propertyPath: m_Layer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f9d457cb7c15c644b62c79ccdb1f249, type: 3}
