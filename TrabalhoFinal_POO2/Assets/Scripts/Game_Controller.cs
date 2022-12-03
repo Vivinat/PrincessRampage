@@ -1,3 +1,5 @@
+using System.Net.Mime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +16,8 @@ public class Game_Controller : MonoBehaviour
     //Nós queremos inicializa-los apenas uma vez!
     private int health = 10;
     private int maxHealth = 10;
+    private double healthPerHeart = 2; // cada coração tem 20% da vida máxima. Inicialmente seu valor é 20% de 10;
+    [SerializeField] Image heart0; // nunca muda, pois não sai da tela e não há nenhu abaixo dele;
     [SerializeField] Image heart1;
     [SerializeField] Image heart2;
     [SerializeField] Image heart3;
@@ -26,28 +30,36 @@ public class Game_Controller : MonoBehaviour
 
     //Primeiro, nossos status devem estar privados
     //Vamos ter que "replica-los" para que outros scripts possam acessá-los
-    
+
     //Minusculo = variaveis privadas
     //Maiusculo = variaveis publicas
-    public int Health {get => health; set => health = value;}
-    public int MaxHealth {get => maxHealth; set => maxHealth = value;}
-    public float FireRate {get => fireRate; set => fireRate = value;}
-    public int Damage {get => damage; set => damage = value;}
-    public float MoveSpeed {get => moveSpeed; set => moveSpeed = value;}
-    public int Exp {get => exp; set => exp = value;}
+    public int Health { get => health; set => health = value; }
+    public int MaxHealth { get => maxHealth; set => maxHealth = value; }
+    public double HealthPerHeart { get => healthPerHeart; set => healthPerHeart = value; }
+    public float FireRate { get => fireRate; set => fireRate = value; }
+    public int Damage { get => damage; set => damage = value; }
+    public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
+    public int Exp { get => exp; set => exp = value; }
 
     public static Game_Controller instance;
     TextMeshProUGUI healthText;
 
     private void Start()
     {
-        print("GAME_CONTROLLERS: " + FindObjectsOfType<Game_Controller>().Length);
+        if (FindObjectsOfType<Game_Controller>().Length > 1)
+        {
+            Destroy(gameObject);
+        }
+
         healthText = GameObject.FindWithTag("HealthText").GetComponent<TextMeshProUGUI>();
         healthText.text = Health.ToString();
+
+        heartChange(); // Atualiza os corações cada vez que inicia uma fase. De uma fase para a outra estava mantendo os corações do mesmo jeito que terminou na ultima fase. 
     }
 
-    private void Awake(){
-        DontDestroyOnLoad(gameObject);   
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
     }
     //Uma vez inicializado, podemos chamar Game_Controller em qualquer lugar do jogo!
 
@@ -57,36 +69,9 @@ public class Game_Controller : MonoBehaviour
         AudioManager.instance.PlaySound("PlayerDamage");
         Health -= damage;
         healthText.text = Health.ToString();
-        // remover coração:
+        heartChange();
 
-        if (Health < 9)
-        {
-            heart5.enabled = false;
-        }
-
-        if (Health < 7)
-        {
-            heart4.enabled = false;
-        }
-
-        if (Health < 5)
-        {
-            heart3.enabled = false;
-        }
-
-        if (Health < 3)
-        {
-            heart2.enabled = false;
-        }
-
-        if (Health < 1)
-        {
-            heart1.enabled = false;
-        }
-
-        // fim remove coração
-
-        if(Health <= 0)     //Dano zerou minha vida
+        if (Health <= 0)     //Dano zerou minha vida
         {
             KillPlayer();
         }
@@ -95,13 +80,73 @@ public class Game_Controller : MonoBehaviour
 
     public void HealPlayer(int healAmount)     //Estou me curando
     {
-        Debug.Log (health);
-        health = Mathf.Min(maxHealth, health + healAmount);
+        Debug.Log("Health: " + health);
+        Health = Mathf.Min(maxHealth, Health + healAmount);
+        healthText = GameObject.FindWithTag("HealthText").GetComponent<TextMeshProUGUI>();
+        healthText.text = Health.ToString();
+        heartChange();
     }
 
-    public void MaxHealthChange (int maxHealthAmount)
+    private void heartChange()
+    {
+        // 100%
+        if (Health >= 5 * HealthPerHeart)
+        {
+            heart5.enabled = true;
+        }
+        // 80%
+        if (Health < 4.5 * HealthPerHeart && Health >= 3.5 * HealthPerHeart)
+        {
+            heart5.enabled = false;
+            heart4.enabled = true;
+            heart3.enabled = true;
+            heart2.enabled = true;
+            heart1.enabled = true;
+        }
+        // 60%
+        if (Health < 3.5 * HealthPerHeart && Health >= 2.5 * HealthPerHeart)
+        {
+            heart5.enabled = false;
+            heart4.enabled = false;
+            heart3.enabled = true;
+            heart2.enabled = true;
+            heart1.enabled = true;
+        }
+        // 40%
+
+        if (Health < 2.5 * HealthPerHeart && Health >= 1.5 * HealthPerHeart)
+        {
+            heart5.enabled = false;
+            heart4.enabled = false;
+            heart3.enabled = false;
+            heart2.enabled = true;
+            heart1.enabled = true;
+        }
+        // 20%
+
+        if (Health < 1.5 * HealthPerHeart && Health >= 0.5 * HealthPerHeart)
+        {
+            heart5.enabled = false;
+            heart4.enabled = false;
+            heart3.enabled = false;
+            heart2.enabled = false;
+            heart1.enabled = true;
+        }
+        // 10%
+        if (Health < 0.5 * HealthPerHeart)
+        {
+            heart5.enabled = false;
+            heart4.enabled = false;
+            heart3.enabled = false;
+            heart2.enabled = false;
+            heart1.enabled = false;
+        }
+    }
+
+    public void MaxHealthChange(int maxHealthAmount)
     {
         maxHealth += maxHealthAmount;
+        HealthPerHeart = 0.2 * MaxHealth;
     }
 
     public void MoveSpeedChange(float speed)     //Estou mais rápido
