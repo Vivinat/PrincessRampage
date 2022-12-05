@@ -43,12 +43,19 @@ public class Game_Controller : MonoBehaviour
 
     public static Game_Controller instance;
     TextMeshProUGUI healthText;
+    TextMeshProUGUI scoreText;
 
     private void Start()
     {
         if (FindObjectsOfType<Game_Controller>().Length > 1)
         {
             Destroy(gameObject);
+        }
+
+        if (SceneManager.GetActiveScene().name == "Endless_Mode") 
+        {
+            scoreText = GameObject.Find("Score").GetComponent<TextMeshProUGUI>();
+            //scoreText.text = Health.ToString();
         }
 
         healthText = GameObject.FindWithTag("HealthText").GetComponent<TextMeshProUGUI>();
