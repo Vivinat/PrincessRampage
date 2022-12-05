@@ -34,6 +34,14 @@ Além das mecânicas de disparo, o jogo conta com as seguintes mecânicas:
 Foram utilizadas as seguintes Design Patterns no processo de desenvolvimento do jogo:
 
 ## Singleton
+O Singleton é um padrão de projeto criacional, que garante que apenas um objeto desse tipo exista e forneça um único ponto de acesso a ele para qualquer outro código. No jogo, ele foi utilizado na função *Awake* que permite chamar Game_Controller em qualquer lugar do jogo
+````
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+````
+
 
 ## Finite State Machine (FSM)
 
