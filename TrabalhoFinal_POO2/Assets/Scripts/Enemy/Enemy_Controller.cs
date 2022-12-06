@@ -52,13 +52,13 @@ namespace DefaultNamespace{
         private ProgressBar progressBar;
         private Game_Controller gameController;
         
-        private IObs counter;
-        protected List<IObs> counterScore;
+        private IObs counterScore;
+        protected List<IObs> observers;
 
 
         void Awake()
         {
-            counterScore = new List<IObs>();
+            observers = new List<IObs>();
         }
         
         // Start is called before the first frame update
@@ -72,8 +72,8 @@ namespace DefaultNamespace{
 
             if (SceneManager.GetActiveScene().name == "Endless_Mode")
             {   
-                counter = FindObjectOfType<Counter>();
-                counterScore.Add(counter);
+                counterScore = FindObjectOfType<Counter_Controller>();
+                observers.Add(counterScore);
                 notify(this, EnemyState.Born);
             }
         }
@@ -183,21 +183,26 @@ namespace DefaultNamespace{
             flashRoutine = StartCoroutine(FlashRoutine());  //Se for nulo, podemos iniciar
         }
 
+        public int getDamage()
+        {
+            return enemyDamage;
+        }
+
         public void notify(Enemy_Controller enemy, EnemyState state)
         {
             
-            counterScore[0].updateObs(enemy, state);
+            observers[0].updateObs(enemy, state);
             // Aqui quando  percorria a lista de observdores para fazer a atualização exibia o seguinte erro: "collection was modified enumeration operation may not execute". Da forma como foi feito, como só tem um contador na tela, e é sempre o mesmo que deve ser atualizado, bastava que um fosse adicionado aos observadores e que ele fosse sempre atualizado.
         }
 
         public void register(IObs obs)
         {
-            counterScore.Add(obs);
+            observers.Add(obs);
         }
 
         public void unregister(IObs obs)
         {
-            counterScore.Remove(obs);
+            observers.Remove(obs);
         }
     }
 }

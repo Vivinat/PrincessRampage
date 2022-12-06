@@ -7,8 +7,6 @@ namespace DefaultNamespace
     public interface IObs
     {
         public void updateObs(Enemy_Controller obs, EnemyState state);
-
-        public int getTotalPoints();
     }
 }
 
