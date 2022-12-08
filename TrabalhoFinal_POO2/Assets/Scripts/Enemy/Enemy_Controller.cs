@@ -73,8 +73,9 @@ namespace DefaultNamespace{
             if (SceneManager.GetActiveScene().name == "Endless_Mode")
             {   
                 counterScore = FindObjectOfType<Counter_Controller>();
-                observers.Add(counterScore);
-                notify(this, EnemyState.Born);
+                //observers.Add(counterScore);
+                register(counterScore);
+                //notify(this, this.currentState);
             }
         }
 
@@ -157,7 +158,7 @@ namespace DefaultNamespace{
             AudioManager.instance.PlaySound("EnemyKill");
 
             if (SceneManager.GetActiveScene().name == "Endless_Mode"){
-                notify(this, EnemyState.Die); // notifica passando a si mesmo (inimigo) e o seu estaado de destruido;
+                notify(this, this.currentState); // notifica passando a si mesmo (inimigo) e o seu estaado de destruido;
             }
 
             Destroy(gameObject);
@@ -188,21 +189,30 @@ namespace DefaultNamespace{
             return enemyDamage;
         }
 
-        public void notify(Enemy_Controller enemy, EnemyState state)
+        public void notify(ISubj enemy, EnemyState state)
         {
-            
-            observers[0].updateObs(enemy, state);
+            foreach (var observer in observers)
+            {
+                observer.updateObs(enemy, state);
+            }
+
+            print("Quantidade de observadores: " + observers.Count);
+            //observers[0].updateObs(enemy, state);
             // Aqui quando  percorria a lista de observdores para fazer a atualização exibia o seguinte erro: "collection was modified enumeration operation may not execute". Da forma como foi feito, como só tem um contador na tela, e é sempre o mesmo que deve ser atualizado, bastava que um fosse adicionado aos observadores e que ele fosse sempre atualizado.
         }
 
         public void register(IObs obs)
         {
+            print("Quantidade de observadores(AA): " + observers.Count);
             observers.Add(obs);
+            print("Quantidade de observadores(DA): " + observers.Count);
         }
 
         public void unregister(IObs obs)
         {
+            print("Quantidade de observadores(AR): " + observers.Count);
             observers.Remove(obs);
+            print("Quantidade de observadores(DR): " + observers.Count);
         }
     }
 }

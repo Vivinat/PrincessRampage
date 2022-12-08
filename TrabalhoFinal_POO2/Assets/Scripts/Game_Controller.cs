@@ -51,16 +51,15 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            if (FindObjectsOfType<Game_Controller>().Length > 1)
-            {
-                Destroy(gameObject);
-            }
-
             heartChange(); // Atualiza os corações cada vez que inicia uma fase. De uma fase para a outra estava mantendo os corações do mesmo jeito que terminou na ultima fase. 
         }
 
         private void Awake()
         {
+            if (FindObjectsOfType<Game_Controller>().Length > 1)
+            {
+                Destroy(gameObject);
+            }
             DontDestroyOnLoad(gameObject);
         }
         //Uma vez inicializado, podemos chamar Game_Controller em qualquer lugar do jogo!

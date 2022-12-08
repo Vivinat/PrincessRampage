@@ -6,7 +6,7 @@ namespace DefaultNamespace
 {
     public interface IObs
     {
-        public void updateObs(Enemy_Controller obs, EnemyState state);
+        public void updateObs(ISubj subject, EnemyState state);
     }
 }
 

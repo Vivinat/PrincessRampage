@@ -23,27 +23,31 @@ namespace DefaultNamespace
 
             currentScoreText = GameObject.Find("CurrentScore").GetComponent<TextMeshProUGUI>();
             CurrentScore = 0;// zera a pontuação;
-            setCurrentScoreText(Points.ToString());
+            SetCurrentScoreText(Points.ToString());
         }
         
-        public void updateObs(Enemy_Controller enemy, EnemyState state)
+        public void updateObs(ISubj subj, EnemyState state)
         {
-
-            if (state == EnemyState.Born)// se o inimigo foi criado
+            print("Estado recebido: " + state);
+            var enemy = (Enemy_Controller)subj;
+            print("Estado do inimigo: " + enemy.currentState);
+            if (state == EnemyState.Born) // se o inimigo foi criado
             {
-                enemy.register(this);// inimigo.registra(a si mesmo/couter);
+                print("OK. Enemy is born!");
+                enemy.register(this);
             }
-            else if (state == EnemyState.Die) // senão, se for destruido
+            // senão, se for destruido
+            else if (state == EnemyState.Die)
             {
                 Points = enemy.getDamage() * 10; // Cada inimigo soma pontos de acordo com seu dano (dificil de matar gera mais pontos);
                 CurrentScore += Points; // soma no total;
                 Points = 0; // para garantir que não vai somar ponto sem termatado o inimigo;
-                setCurrentScoreText(CurrentScore.ToString()); // mostra na tela;
-                enemy.unregister(this); // inimigo desregistra o contador;
+                SetCurrentScoreText(CurrentScore.ToString()); // mostra na tela;
+                //enemy.unregister(this); // inimigo desregistra o contador;
             }
         }
 
-        private void setCurrentScoreText(string score)
+        private void SetCurrentScoreText(string score)
         {
             currentScoreText.text = score;
         }

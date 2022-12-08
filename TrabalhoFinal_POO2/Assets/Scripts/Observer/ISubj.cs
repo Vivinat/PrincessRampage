@@ -10,6 +10,6 @@ namespace DefaultNamespace
     {
         void register(IObs obs);
         void unregister(IObs obs);
-        void notify(Enemy_Controller enemy, EnemyState state);
+        void notify(ISubj subj, EnemyState state);
     }
 }
