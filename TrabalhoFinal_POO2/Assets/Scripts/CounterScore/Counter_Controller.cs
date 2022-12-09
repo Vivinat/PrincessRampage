@@ -28,9 +28,7 @@ namespace DefaultNamespace
         
         public void updateObs(ISubj subj, EnemyState state)
         {
-            print("Estado recebido: " + state);
             var enemy = (Enemy_Controller)subj;
-            print("Estado do inimigo: " + enemy.currentState);
             if (state == EnemyState.Born) // se o inimigo foi criado
             {
                 print("OK. Enemy is born!");
@@ -43,7 +41,6 @@ namespace DefaultNamespace
                 CurrentScore += Points; // soma no total;
                 Points = 0; // para garantir que não vai somar ponto sem termatado o inimigo;
                 SetCurrentScoreText(CurrentScore.ToString()); // mostra na tela;
-                //enemy.unregister(this); // inimigo desregistra o contador;
             }
         }
 

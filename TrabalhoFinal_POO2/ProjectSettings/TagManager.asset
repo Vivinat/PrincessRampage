@@ -9,6 +9,8 @@ TagManager:
   - Spawner
   - HealthText
   - Score
+  - BossEnemy
+  - BossLifeText
   layers:
   - Default
   - TransparentFX

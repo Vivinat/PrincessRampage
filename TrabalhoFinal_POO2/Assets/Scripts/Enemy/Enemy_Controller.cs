@@ -12,7 +12,8 @@ public enum EnemyState
     Born,
     Follow,
     Die,
-    Attack
+    Attack,
+    Damage,
 };
 
 public enum EnemyType
@@ -54,6 +55,9 @@ namespace DefaultNamespace{
         
         private IObs counterScore;
         protected List<IObs> observers;
+        private IObs bossLifeBar;
+        
+        
 
 
         void Awake()
@@ -70,12 +74,18 @@ namespace DefaultNamespace{
             spriteRenderer = GetComponent<SpriteRenderer>();        //Pegue o renderizador do inimigo
             originalMaterial = spriteRenderer.material;
 
+            if (enemyType == EnemyType.Ranged)
+            {
+                print("Sou um inimigo ranged!");
+                life = 10;
+                bossLifeBar = GameObject.FindObjectOfType<BossLifeBar>();
+                register(bossLifeBar);
+            }
+
             if (SceneManager.GetActiveScene().name == "Endless_Mode")
             {   
                 counterScore = FindObjectOfType<Counter_Controller>();
-                //observers.Add(counterScore);
                 register(counterScore);
-                //notify(this, this.currentState);
             }
         }
 
@@ -143,7 +153,12 @@ namespace DefaultNamespace{
         public void TakeDamage(int damage)
         {
             Flash();        //Vou piscar para sinalizar que tomei dano
-            life -= damage; 
+            life -= damage;
+            if (enemyType == EnemyType.Ranged)
+            {
+                currentState = EnemyState.Damage;
+                notify(this, currentState);
+            }
             if (life <= 0)
             {
                 currentState = EnemyState.Die;
@@ -197,8 +212,6 @@ namespace DefaultNamespace{
             }
 
             print("Quantidade de observadores: " + observers.Count);
-            //observers[0].updateObs(enemy, state);
-            // Aqui quando  percorria a lista de observdores para fazer a atualização exibia o seguinte erro: "collection was modified enumeration operation may not execute". Da forma como foi feito, como só tem um contador na tela, e é sempre o mesmo que deve ser atualizado, bastava que um fosse adicionado aos observadores e que ele fosse sempre atualizado.
         }
 
         public void register(IObs obs)

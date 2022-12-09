@@ -34,6 +34,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //Operador ternário
         currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
 
