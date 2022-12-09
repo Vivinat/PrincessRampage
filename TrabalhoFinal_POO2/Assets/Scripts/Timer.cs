@@ -37,7 +37,6 @@ public class Timer : MonoBehaviour
 
         //Operador ternário
         currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
-
         if (SceneManager.GetActiveScene().name == "Endless_Mode")   //Se voce estiver no endless
         {
             if (currentTime >= timeSpawn && SpawnFlag == 1) //Ligue estes spawners e set a flag para que este comando não se repita

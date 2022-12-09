@@ -56,10 +56,8 @@ namespace DefaultNamespace{
         private IObs counterScore;
         protected List<IObs> observers;
         private IObs bossLifeBar;
+        private BossLifeBar lifeBarInstance;
         
-        
-
-
         void Awake()
         {
             observers = new List<IObs>();
@@ -76,8 +74,6 @@ namespace DefaultNamespace{
 
             if (enemyType == EnemyType.Ranged)
             {
-                print("Sou um inimigo ranged!");
-                life = 10;
                 bossLifeBar = GameObject.FindObjectOfType<BossLifeBar>();
                 register(bossLifeBar);
             }
@@ -202,6 +198,11 @@ namespace DefaultNamespace{
         public int getDamage()
         {
             return enemyDamage;
+        }
+
+        public int getEnemyLife()
+        {
+            return life;
         }
 
         public void notify(ISubj enemy, EnemyState state)

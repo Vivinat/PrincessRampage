@@ -8,22 +8,26 @@ namespace DefaultNamespace
     public class BossLifeBar : MonoBehaviour, IObs
     {
         private int bossLife; 
-        private int bossMaxLife = 100; // ****dar um jeto de pegar a vida do boss de forma que se mudar lá aqui muda tambem
+        private int bossMaxLife = 0;
 
         [SerializeField] public Image greenBar;
         [SerializeField] public Image yellowBar;
         [SerializeField] public Image redBar;
 
-        private Vector3 lifeBarScale; // tamanho da barra (pode precisar de mais de uma)
+        private Vector3 lifeBarScale; // tamanho da barra
         private float lifePercent; // percentual de vida para o calculo do tamanho das barras
 
         private void Start()
         {
-            bossLife = bossMaxLife;
+            var bossInstance = GameObject.FindObjectOfType<Enemy_Controller>(); // Verificar depois. Aqui ele pode pegar qualquer inimigo. 99% de certeza que quando a barra de vida iniciar sóvai ter o Boss no jogo. Porém isso é gambiarra.
+            bossMaxLife = bossInstance.getEnemyLife();
+            print("VIDA MAX: " + bossMaxLife);
+            print("vida do Boss: " + bossLife);
             lifeBarScale = greenBar.rectTransform.localScale;
-            //inicializar a vida maxima do boss;
+            print("lifeScale: " + lifeBarScale.x);
+            print("lifeScale (DdA):  " + lifeBarScale.x);
         }
-
+        
         public void updateObs(ISubj subj, EnemyState state)
         {
             var enemy = (Enemy_Controller)subj;
@@ -34,14 +38,12 @@ namespace DefaultNamespace
             }
         }
 
-        public void SetBossLife(int life)
-        {
-            bossLife = life;
-        }
-
         private void updateLifebar()
         {
             lifeBarScale.x = (float)bossLife / bossMaxLife;
+            
+            print("vida do Boss: " + bossLife);
+            print("lifeScale: " + lifeBarScale.x);
 
             if (lifeBarScale.x <= 0.67) // vida em 3/3
             {
