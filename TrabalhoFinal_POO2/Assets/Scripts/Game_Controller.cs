@@ -16,9 +16,9 @@ namespace DefaultNamespace
 
         //Por ser static, os status do player estão em um unico valor, sem serem replicados
         //Nós queremos inicializa-los apenas uma vez!
-        private int health = 100;
-        private int maxHealth = 100;
-        private double healthPercent = 2; // cada coração tem 20% da vida máxima. Inicialmente seu valor é 20% de 10;
+        private int health;
+        private int maxHealth = 10;
+        private double healthPercent; // cada coração tem 20% da vida máxima. Inicialmente seu valor é 20% de 10;
         [SerializeField] Image heart0; // nunca muda, pois não sai da tela e não há nenhu abaixo dele;
         [SerializeField] Image heart1;
         [SerializeField] Image heart2;
@@ -51,6 +51,8 @@ namespace DefaultNamespace
 
         private void Start()
         {
+            Health = MaxHealth;
+            HealthPercent = (double)MaxHealth / 5;
             heartChange();
         }
 
@@ -80,19 +82,20 @@ namespace DefaultNamespace
 
         public void HealPlayer(int healAmount)     //Estou me curando
         {
-            Health = Mathf.Min(maxHealth, Health + healAmount);
+            Health = Mathf.Min(MaxHealth, Health + healAmount);
             heartChange();
         }
 
         private void heartChange()
         {
+            print("Player life: " + Health);
             // 100%
             if (Health >= 5 * HealthPercent)
             {
                 heart5.enabled = true;
             }
             // 80%
-            if (Health < 4.5 * HealthPercent && Health >= 3.5 * HealthPercent)
+            if (Health < 5 * HealthPercent && Health >= 4 * HealthPercent)
             {
                 heart5.enabled = false;
                 heart4.enabled = true;
@@ -101,7 +104,7 @@ namespace DefaultNamespace
                 heart1.enabled = true;
             }
             // 60%
-            if (Health < 3.5 * HealthPercent && Health >= 2.5 * HealthPercent)
+            if (Health < 4 * HealthPercent && Health >= 3 * HealthPercent)
             {
                 heart5.enabled = false;
                 heart4.enabled = false;
@@ -111,7 +114,7 @@ namespace DefaultNamespace
             }
             // 40%
 
-            if (Health < 2.5 * HealthPercent && Health >= 1.5 * HealthPercent)
+            if (Health < 3 * HealthPercent && Health >= 2 * HealthPercent)
             {
                 heart5.enabled = false;
                 heart4.enabled = false;
@@ -121,7 +124,7 @@ namespace DefaultNamespace
             }
             // 20%
 
-            if (Health < 1.5 * HealthPercent && Health >= 0.5 * HealthPercent)
+            if (Health < 2 * HealthPercent && Health >= 1 * HealthPercent)
             {
                 heart5.enabled = false;
                 heart4.enabled = false;
@@ -130,7 +133,7 @@ namespace DefaultNamespace
                 heart1.enabled = true;
             }
             // 10%
-            if (Health < 0.5 * HealthPercent)
+            if (Health < 1 * HealthPercent)
             {
                 heart5.enabled = false;
                 heart4.enabled = false;
@@ -142,8 +145,8 @@ namespace DefaultNamespace
 
         public void MaxHealthChange(int maxHealthAmount)
         {
-            maxHealth += maxHealthAmount;
-            HealthPercent = 0.2 * MaxHealth;
+            MaxHealth += maxHealthAmount;
+            HealthPercent = (double)MaxHealth / 5;
         }
 
         public void MoveSpeedChange(float speed)     //Estou mais rápido
@@ -171,6 +174,7 @@ namespace DefaultNamespace
         }
         public void KillPlayer() //Morri
         {
+            // para o controle da pontuação a cada jogada no Endless Mode:
             if (SceneManager.GetActiveScene().name == "Endless_Mode")
             {
                 counterScore = FindObjectOfType<Counter_Controller>();
@@ -185,10 +189,10 @@ namespace DefaultNamespace
                 lastScore = counterScore.CurrentScore;
                 PlayerPrefs.SetInt("RoundLastScore", lastScore);
             }
+            
             AudioManager.instance.StopSound("Battle2");
             SceneManager.LoadScene("DeathScene");
-            Health = 10;
-            HealthPercent = 0.2 * MaxHealth;
+            Health = MaxHealth;
             Destroy(gameObject);
         }
 

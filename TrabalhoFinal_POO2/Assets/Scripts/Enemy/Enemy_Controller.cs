@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -56,7 +57,6 @@ namespace DefaultNamespace{
         private IObs counterScore;
         protected List<IObs> observers;
         private IObs bossLifeBar;
-        private BossLifeBar lifeBarInstance;
         
         void Awake()
         {
@@ -76,6 +76,7 @@ namespace DefaultNamespace{
             {
                 bossLifeBar = GameObject.FindObjectOfType<BossLifeBar>();
                 register(bossLifeBar);
+                notify(this, currentState);
             }
 
             if (SceneManager.GetActiveScene().name == "Endless_Mode")
@@ -200,33 +201,22 @@ namespace DefaultNamespace{
             return enemyDamage;
         }
 
-        public int getEnemyLife()
-        {
-            return life;
-        }
-
         public void notify(ISubj enemy, EnemyState state)
         {
             foreach (var observer in observers)
             {
                 observer.updateObs(enemy, state);
             }
-
-            print("Quantidade de observadores: " + observers.Count);
         }
 
         public void register(IObs obs)
         {
-            print("Quantidade de observadores(AA): " + observers.Count);
             observers.Add(obs);
-            print("Quantidade de observadores(DA): " + observers.Count);
         }
 
         public void unregister(IObs obs)
         {
-            print("Quantidade de observadores(AR): " + observers.Count);
             observers.Remove(obs);
-            print("Quantidade de observadores(DR): " + observers.Count);
         }
     }
 }

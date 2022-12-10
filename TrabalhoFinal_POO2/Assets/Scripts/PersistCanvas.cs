@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,12 +27,26 @@ public class PersistCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("Estou na cena: " + SceneManager.GetActiveScene().name);
         if (SceneManager.GetActiveScene().name == "FinalBoss")
         {
-            var time = GameObject.Find("Timer").GetComponent<TextMeshProUGUI>();
-            Destroy(time);
+            var timeObj = GameObject.Find("Timer");
+            if (timeObj != null)
+            {
+                var time = timeObj.GetComponent<TextMeshProUGUI>();
+                Destroy(time);
+            }
         }
+        else
+        {
+            var bossLifeBarObj = GameObject.Find("LifeBar");
+            
+            if(bossLifeBarObj != null)
+            {
+                var bossLifeBar = GetComponent<TextMeshProUGUI>();
+                Destroy(bossLifeBarObj);
+            }
+        }
+        
         if (SceneManager.GetActiveScene().name == "DeathScene")
         {
             Destroy(gameObject);
