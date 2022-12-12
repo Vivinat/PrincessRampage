@@ -55,8 +55,51 @@ A Finite State Machine é um sistema de comportamentos definido por Enums, o que
 
 
 ## 👀 Observer
+O Observer define uma dependência “um para muitos”. Quando um objeto mudar de estado (subject/observável), todos os seus dependentes são notificados automaticamente. Este pattern foi implementado para ser utilizado em dois casos:
+
+- No modo de jogo Endless Mode existe um contador de pontos, que aumenta sempre que o player mata um inimigo. Existe um script responsável por esse contador que implementa a interface de Observador (IObs). Esse script implementa a função UpdateObs, que recebe uma referência para o inimigo (observável) e o seu estado atual. Se o estado do inimigo é "Die", significa que ele morreu e que a quantidade total de pontos devem ser incremetada. Cada inimigo fornece uma quantidade de pontos que é 10x maior que o valor do seu dano (ou seja, quanto mais forte for o inimigo que o player matou, mais pontos ele acumula).
+  A interface do Observável é o script do inimigo quem implementa. Cada novo inimigo instanciado no jogo registra o contador para que possa notificá-lo de sua morte no final. Quando morre, o inimigo chama a função Notify para avisar os observadores (o contador, nesse caso) de que ele morreu para que o contador possa executar suas instruções.
+
+````
+    namespace DefaultNamespace
+    {
+        public interface IObs
+        {
+            public void updateObs(ISubj subject, EnemyState state);
+        }
+    }
+````
+````
+    namespace DefaultNamespace
+    {
+        public interface ISubj
+        {
+            void register(IObs obs);
+            void unregister(IObs obs);
+            void notify(ISubj subj, EnemyState state);
+        }
+    }
+````
+
+- Na fase "Final Boss" houve a necessidade de mostrar a quantidade de vida restante do Boss, ja que ele é o mais difícil. Quando o inimigo é o Boss ele registra a barra de vida como um de seus observadores e a notifica de que nasceu na cena para que a vida máxima dela seja calculada. A barra de vida é então notificada sempre que o Boss recebe algum dano. Ela recebe a instância do Boss e o seu estado (que nesse caso será Damage. É feito então o cálculo do dano para diminuir a barra de vida de acordo com o dano que recebeu.
 
 ## 🚧 Concurrency (Corrotinas)
+Sendo uma design pattern de Concorrência, as Corrotinas (Coroutines) são métodos que que podem ser usados para pausar a execução em determinada parte do código, geralmente utilizado para contabilizar tempo e retornar um resultado após este tempo ter se esgotado. Corrotinas foram utilizadas no jogo para determinar o tempo em que os inimigos piscam após receberem dano, e o tempo de duração do disparo executado pelo player, entre outros. 
+
+````
+    void Start()
+    {
+        gameController = FindObjectOfType<Game_Controller>();
+        StartCoroutine(DeathDelay()); //Coroutine para saber quando destruimos a bala
+    }
+````
+
+````
+    IEnumerator DeathDelay(){
+        yield return new WaitForSeconds(lifeTime);  //Espere a quantidade de tempo definido por lifeTime
+        Destroy(gameObject);       //Depois, destrua o objeto (a bala)
+    }
+````
 
 # ❤ Créditos e Agradecimentos
 Agradecimentos especiais para os artistas que compartilharam suas artes:
