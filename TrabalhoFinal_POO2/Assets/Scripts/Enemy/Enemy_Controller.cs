@@ -1,83 +1,223 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-
-//Usaremos uma máquina finita de estados
+// Os estados dos inimigos são eventos
+/*
 public enum EnemyState
 {
     //Quero que meu inimigo faça o que?
+    Born,
     Follow,
     Die,
-    Attack
-}
+    Attack,
+    Damage,
+};
+*/
 
-public class Enemy_Controller : MonoBehaviour
+public enum EnemyType
 {
-    GameObject player;
-    public EnemyState currentState = EnemyState.Follow; //O inimigo sempre sabe onde vocêe está!
-    public float speed;         //O quão rápido o inimigo é?
-    public float attackRange;   //O quão perto o inimigo tem que estar do player?
-    public int enemyDamage;
-    private bool cooldownAttack = false;
-    public int cooldown;
+    //Qual o tipo dele?
+    Melee,
+    Ranged
+};
 
-    
-    // Start is called before the first frame update
-    void Start()
+namespace DefaultNamespace{
+        public class Enemy_Controller : MonoBehaviour, ISubj
     {
-        player = GameObject.FindGameObjectWithTag("Player");    //Procure o player
-    }
+        GameObject player;
+        public Eventos currentState = Eventos.Enemy_Follow; //O inimigo sempre sabe onde vocêe está!
+        public EnemyType enemyType;
 
-    // Update is called once per frame
-    void Update()
-    {   //O que o inimigo vai fazer?
-        switch(currentState)
+        public float speed;         //O quão rápido o inimigo é?
+        public float attackRange;   //O quão perto o inimigo tem que estar do player?
+        public int enemyDamage;
+        private bool cooldownAttack = false;
+        public int cooldown;
+        public int life;
+        public int XP;
+        public GameObject bulletPrefab;
+
+        //Quero que o inimigo pisque quando tome dano!
+        [SerializeField]
+        private Material flashMaterial;
+
+        [SerializeField]
+        private float duration;
+
+        private SpriteRenderer spriteRenderer;
+        private Material originalMaterial;
+        private Coroutine flashRoutine;
+
+        private ProgressBar progressBar;
+        private Game_Controller gameController;
+        
+        private IObs counterScore;
+        protected List<IObs> observers;
+        private IObs bossLifeBar;
+        
+        void Awake()
         {
-            case(EnemyState.Follow):
-            Follow();
-            break;
-            case(EnemyState.Die):
-            break;
-            case(EnemyState.Attack):
-            Attack();
-            break;
+            observers = new List<IObs>();
+        }
+        
+        // Start is called before the first frame update
+        void Start()
+        {
+            gameController = FindObjectOfType<Game_Controller>();
+            progressBar = FindObjectOfType<ProgressBar>();
+            player = GameObject.FindGameObjectWithTag("Player");    //Procure o player
+            spriteRenderer = GetComponent<SpriteRenderer>();        //Pegue o renderizador do inimigo
+            originalMaterial = spriteRenderer.material;
+
+            if (this.gameObject.CompareTag("BossEnemy"))
+            {
+                bossLifeBar = GameObject.FindObjectOfType<BossLifeBar>();
+                register(bossLifeBar);
+                notify(this, currentState);
+            }
+
+            if (SceneManager.GetActiveScene().name == "Endless_Mode")
+            {   
+                counterScore = FindObjectOfType<Counter_Controller>();
+                register(counterScore);
+            }
         }
 
-        if(Vector3.Distance(transform.position, player.transform.position) <= attackRange)  //Se estiver na distancia correta
-        {
-            currentState = EnemyState.Attack;
+        // Update is called once per frame
+        void Update()
+        {   //O que o inimigo vai fazer?
+            switch(currentState)
+            {
+                case(Eventos.Enemy_Follow):
+                Follow();
+                break;
+                case(Eventos.Enemy_Die):
+                Die();
+                break;
+                case(Eventos.Enemy_Attack):
+                Attack();
+                break;
+            }
+
+            if(Vector3.Distance(transform.position, player.transform.position) <= attackRange)  //Se estiver na distancia correta
+            {
+                currentState = Eventos.Enemy_Attack;   //Consigo atacar
+            }
+            if(Vector3.Distance(transform.position, player.transform.position) >= attackRange)  //Se estiver na distancia correta
+            {
+                currentState = Eventos.Enemy_Follow;   //Consigo seguir
+            }
+
         }
-        if(Vector3.Distance(transform.position, player.transform.position) >= attackRange)  //Se estiver na distancia correta
+
+        //Segue o player
+        void Follow()
         {
-            currentState = EnemyState.Follow;
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         }
 
-    }
+        void Attack()
+        {
+            if (!cooldownAttack)
+            {   
+                switch(enemyType)
+                {
+                    case(EnemyType.Melee):
+                        gameController.DamagePlayer(enemyDamage);  //Ataque!
+                        StartCoroutine(CoolDown());
+                    break;
+                    case(EnemyType.Ranged): //Se for ranged
+                        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject;   //Instancie uma bala
+                        bullet.GetComponent<Bullet_Controller>().GetPlayer(player.transform);
+                        bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+                        bullet.GetComponent<Bullet_Controller>().isEnemyBullet = true;  //Precisamos diferenciar as balas do player e do inimigo!
+                        StartCoroutine(CoolDown());
+                    break;
+                }
+            }
+        }
 
-    void Follow()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-    }
+        private IEnumerator CoolDown(){
+            cooldownAttack = true;      
+            yield return new WaitForSeconds(cooldown);
+            cooldownAttack = false; 
+        }
 
-    void Attack()
-    {
-        if (!cooldownAttack)    //Se não estiver em cooldown
-            Game_Controller.DamagePlayer(enemyDamage);  //Ataque!
-            Debug.Log("Ataquei");
-            StartCoroutine(CoolDown());
-    }
+        //Tomei dano
+        public void TakeDamage(int damage)
+        {
+            Flash();        //Vou piscar para sinalizar que tomei dano
+            life -= damage;
+            if (this.gameObject.CompareTag("BossEnemy"))
+            {
+                currentState = Eventos.Enemy_Damage;
+                notify(this, currentState);
+            }
+            if (life <= 0)
+            {
+                currentState = Eventos.Enemy_Die;
+            }
+        }
 
-    private IEnumerator CoolDown(){
-        Debug.Log("Entrei em cooldown");
-        cooldownAttack = true;      
-        yield return new WaitForSeconds(cooldown);
-        Debug.Log("Posso atacar de novo");
-        cooldownAttack = false; 
-    }
+        public void Die()
+        {
+            GetComponent<LootBag>().InstantiateLoot(transform.position);    //Na posição em que ele se encontra, o loot é instanciado
+            gameController.ExpChange(XP);
+            progressBar.Increment(XP);                             //ATENÇAO: SE NAO TIVER A BARRA DE XP NO CENARIO, ESTE COMANDO QUEBRA O GAME
+            AudioManager.instance.PlaySound("EnemyKill");
 
-    public void Die()
-    {
-        Destroy(gameObject);
+            if (SceneManager.GetActiveScene().name == "Endless_Mode"){
+                notify(this, this.currentState); // notifica passando a si mesmo (inimigo) e o seu estaado de destruido;
+            }
+
+            Destroy(gameObject);
+        }
+
+
+
+        //Tomei dano e agora vou piscar
+        private IEnumerator FlashRoutine()
+        {
+            spriteRenderer.material = flashMaterial;    //Troque o material do inimigo pelo flashMaterial
+            yield return new WaitForSeconds(duration);  //Espere
+            spriteRenderer.material = originalMaterial; //Devolva o material original do inimigo
+            flashRoutine = null;                        //No termino da routine, flashRoutine torna-se null
+        }
+
+        public void Flash()
+        {
+            if (flashRoutine != null)   //Se não é nulo, é por que está acontecendo agora
+            {
+                StopCoroutine (flashRoutine);   //Se for esse o caso, temos que parar para não bugar
+            }
+            flashRoutine = StartCoroutine(FlashRoutine());  //Se for nulo, podemos iniciar
+        }
+
+        public int getDamage()
+        {
+            return enemyDamage;
+        }
+
+        public void notify(ISubj enemy, Eventos state)
+        {
+            foreach (var observer in observers)
+            {
+                observer.updateObs(enemy, state);
+            }
+        }
+
+        public void register(IObs obs)
+        {
+            observers.Add(obs);
+        }
+
+        public void unregister(IObs obs)
+        {
+            observers.Remove(obs);
+        }
     }
 }

@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4457709067922980840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6348831826449382422}
+  - component: {fileID: 4649134669103371742}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6348831826449382422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457709067922980840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 335.3818, y: 7.537216, z: 173.02887}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4649134669103371742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457709067922980840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f134c1ddfcbb741a35641c3e104cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioSource: {fileID: 0}
+    name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: Menu
+    clip: {fileID: 8300000, guid: 9d3557b3f9700344a94af7421c7fdbf9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+  - audioSource: {fileID: 0}
+    name: Battle
+    clip: {fileID: 8300000, guid: c473b95e577448140afe7db3c7173304, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+  - audioSource: {fileID: 0}
+    name: Final_Boss
+    clip: {fileID: 8300000, guid: edef4e35411796f49b82e2df0e9d9d4b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+  - audioSource: {fileID: 0}
+    name: Battle2
+    clip: {fileID: 8300000, guid: c8a4c152f75452b408a59f2970913576, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+  - audioSource: {fileID: 0}
+    name: PlayerDamage
+    clip: {fileID: 8300000, guid: e7ccf4079a6c878419133a7fd85343dd, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: EnemyKill
+    clip: {fileID: 8300000, guid: 693405b2a676b0f41b5cb76b105147a1, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: BulletSound
+    clip: {fileID: 8300000, guid: 3535e4fc669427d469f2992df8d5fe36, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: CollectSound
+    clip: {fileID: 8300000, guid: 12eac414acbc94c4389a94d7e01c80cb, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: LevelUp!
+    clip: {fileID: 8300000, guid: 66637fd7cc168e641a060cc9e0d58823, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0

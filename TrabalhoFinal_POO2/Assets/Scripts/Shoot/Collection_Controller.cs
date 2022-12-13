@@ -5,42 +5,43 @@ using UnityEngine;
 [System.Serializable]
 public class Item
 {
-    public string name;
+    public string name;         //Atributos dos meus coletaveis
     public Sprite itemImage;
 }
 
-
-public class Collection_Controller : MonoBehaviour
+namespace DefaultNamespace
 {
-    public Item item;
-    public float healthChange;
-    public float damageChange;
-    public float fireRateChange;
-    public float moveSpeedChange;
-
-
-    // Start is called before the first frame update
-    void Start()
+        public class Collection_Controller : MonoBehaviour
     {
-        GetComponent<SpriteRenderer>().sprite = item.itemImage;
-        Destroy(GetComponent<PolygonCollider2D>());
-        gameObject.AddComponent<PolygonCollider2D>();
-    }
+        public Item item;           //Mais atributos aqui
+        public int healthChange;
+        public float moveSpeedChange;
+        public int mHealthChange;
+        public int DamChange;
+        private Game_Controller gameController;   
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
+
+        // Start is called before the first frame update
+        void Start()
         {
-            Player_Controller.collectedAmount++;
-            //Player_Controller.HealPlayer(healthChange);
-            //Player_Controller.DamageChange(damageChange);
-            //Player_Controller.FireRateChange(fireRateChange);
-            //Player_Controller.MoveSpeedChange(moveSpeedChange);
-            Destroy(gameObject);
+            gameController = FindObjectOfType<Game_Controller>();
+            GetComponent<SpriteRenderer>().sprite = item.itemImage; 
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision) //Se player colidir com o item
+        {
+            if (collision.tag == "Player")
+            {
+                AudioManager.instance.PlaySound("CollectSound");
+                gameController.HealPlayer(healthChange);      //Modifique essas coisas
+                gameController.MoveSpeedChange(moveSpeedChange);
+                gameController.MaxHealthChange(mHealthChange);
+                gameController.DamageChange(DamChange);
+                Destroy(gameObject);
+            }
         }
 
 
     }
-
 
 }
