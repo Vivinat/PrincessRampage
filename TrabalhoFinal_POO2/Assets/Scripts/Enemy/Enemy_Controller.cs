@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
-//Usaremos uma máquina finita de estados
+// Os estados dos inimigos são eventos
+/*
 public enum EnemyState
 {
     //Quero que meu inimigo faça o que?
@@ -16,6 +16,7 @@ public enum EnemyState
     Attack,
     Damage,
 };
+*/
 
 public enum EnemyType
 {
@@ -28,7 +29,7 @@ namespace DefaultNamespace{
         public class Enemy_Controller : MonoBehaviour, ISubj
     {
         GameObject player;
-        public EnemyState currentState = EnemyState.Follow; //O inimigo sempre sabe onde vocêe está!
+        public Eventos currentState = Eventos.Enemy_Follow; //O inimigo sempre sabe onde vocêe está!
         public EnemyType enemyType;
 
         public float speed;         //O quão rápido o inimigo é?
@@ -91,24 +92,24 @@ namespace DefaultNamespace{
         {   //O que o inimigo vai fazer?
             switch(currentState)
             {
-                case(EnemyState.Follow):
+                case(Eventos.Enemy_Follow):
                 Follow();
                 break;
-                case(EnemyState.Die):
+                case(Eventos.Enemy_Die):
                 Die();
                 break;
-                case(EnemyState.Attack):
+                case(Eventos.Enemy_Attack):
                 Attack();
                 break;
             }
 
             if(Vector3.Distance(transform.position, player.transform.position) <= attackRange)  //Se estiver na distancia correta
             {
-                currentState = EnemyState.Attack;   //Consigo atacar
+                currentState = Eventos.Enemy_Attack;   //Consigo atacar
             }
             if(Vector3.Distance(transform.position, player.transform.position) >= attackRange)  //Se estiver na distancia correta
             {
-                currentState = EnemyState.Follow;   //Consigo seguir
+                currentState = Eventos.Enemy_Follow;   //Consigo seguir
             }
 
         }
@@ -153,12 +154,12 @@ namespace DefaultNamespace{
             life -= damage;
             if (this.gameObject.CompareTag("BossEnemy"))
             {
-                currentState = EnemyState.Damage;
+                currentState = Eventos.Enemy_Damage;
                 notify(this, currentState);
             }
             if (life <= 0)
             {
-                currentState = EnemyState.Die;
+                currentState = Eventos.Enemy_Die;
             }
         }
 
@@ -201,7 +202,7 @@ namespace DefaultNamespace{
             return enemyDamage;
         }
 
-        public void notify(ISubj enemy, EnemyState state)
+        public void notify(ISubj enemy, Eventos state)
         {
             foreach (var observer in observers)
             {

@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-// ReSharper disable All
 
 
 
@@ -27,14 +26,14 @@ namespace DefaultNamespace
             SetCurrentScoreText(Points.ToString());
         }
         
-        public void updateObs(ISubj subj, EnemyState state)
+        public void updateObs(ISubj subj, Eventos state)
         {
             var enemy = (Enemy_Controller)subj;
-            if (state == EnemyState.Born) // se o inimigo foi criado
+            if (state == Eventos.Enemy_Born) // se o inimigo foi criado
             {
                 enemy.register(this);
             }
-            else if (state == EnemyState.Die) // senão, se for destruido
+            else if (state == Eventos.Enemy_Die) // senão, se for destruido
             {
                 Points = enemy.getDamage() * 10; // Cada inimigo soma pontos de acordo com seu dano (dificil de matar gera mais pontos);
                 CurrentScore += Points; // soma no total;

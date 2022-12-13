@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.73969346, y: 1}
   m_AnchorMax: {x: 0.73969346, y: 1}
-  m_AnchoredPosition: {x: 0, y: -45}
-  m_SizeDelta: {x: 164.05, y: 50}
+  m_AnchoredPosition: {x: -26.655197, y: -56.925003}
+  m_SizeDelta: {x: 117.4662, y: 41.6694}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30396298
 MonoBehaviour:
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.3
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -293,8 +293,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 97.8, y: -31.5}
-  m_SizeDelta: {x: 219.979, y: 172.7283}
+  m_AnchoredPosition: {x: 74.99994, y: -51.99991}
+  m_SizeDelta: {x: 196.6402, y: 164.3931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &33662322
 MonoBehaviour:
@@ -705,8 +705,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 97.79999, y: -31.499985}
-  m_SizeDelta: {x: 219.979, y: 172.7283}
+  m_AnchoredPosition: {x: 74.99994, y: -51.99991}
+  m_SizeDelta: {x: 196.6402, y: 164.3931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &552111031
 MonoBehaviour:
@@ -1075,8 +1075,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 97.79999, y: -31.5}
-  m_SizeDelta: {x: 219.979, y: 172.7283}
+  m_AnchoredPosition: {x: 75, y: -52}
+  m_SizeDelta: {x: 196.6402, y: 164.3931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1073495678
 MonoBehaviour:
@@ -3868,8 +3868,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.28800002, y: 1}
   m_AnchorMax: {x: 0.28800002, y: 1}
-  m_AnchoredPosition: {x: 0, y: -45}
-  m_SizeDelta: {x: 164.05, y: 50}
+  m_AnchoredPosition: {x: 13.9767, y: -56.925003}
+  m_SizeDelta: {x: 96.5122, y: 41.6694}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1497145311
 MonoBehaviour:
@@ -3918,7 +3918,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.85
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11240,8 +11240,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 97.79999, y: -31.5}
-  m_SizeDelta: {x: 219.979, y: 172.7283}
+  m_AnchoredPosition: {x: 74.99994, y: -51.99991}
+  m_SizeDelta: {x: 196.6402, y: 164.3931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1557165204
 MonoBehaviour:
@@ -11373,8 +11373,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 97.79999, y: -31.5}
-  m_SizeDelta: {x: 219.979, y: 172.7283}
+  m_AnchoredPosition: {x: 74.99994, y: -51.99991}
+  m_SizeDelta: {x: 196.6402, y: 164.3931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624082343
 MonoBehaviour:
@@ -11957,8 +11957,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 97.79999, y: -31.5}
-  m_SizeDelta: {x: 219.979, y: 172.7283}
+  m_AnchoredPosition: {x: 74.99994, y: -51.99991}
+  m_SizeDelta: {x: 196.6402, y: 164.3931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2055260319
 MonoBehaviour:
@@ -12168,8 +12168,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: -25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -68.70816, y: -45}
+  m_SizeDelta: {x: 137.4172, y: 41.6647}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2122351360
 MonoBehaviour:
@@ -12218,7 +12218,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.05
+  m_fontSize: 32.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

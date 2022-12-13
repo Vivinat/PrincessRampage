@@ -11,7 +11,7 @@ namespace DefaultNamespace
     {
         void register(IObs obs);
         void unregister(IObs obs);
-        void notify(ISubj subj, EnemyState state);
+        void notify(ISubj subj, Eventos evento);
     }
 }
 

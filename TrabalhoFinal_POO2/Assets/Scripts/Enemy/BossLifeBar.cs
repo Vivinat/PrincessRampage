@@ -23,16 +23,16 @@ namespace DefaultNamespace
             lifeBarScale = greenBar.rectTransform.localScale; // Inicializa com o valor da barra no seu estado inicial (cheia)
         }
         
-        public void updateObs(ISubj subj, EnemyState state)
+        public void updateObs(ISubj subj, Eventos state)
         {
             var enemy = (Enemy_Controller)subj;
-            if (state == EnemyState.Born)
+            if (state == Eventos.Enemy_Born)
             {
                 maxLife = enemy.life;
                 life = maxLife;
                 lifePercent = lifeBarScale.x / maxLife;
             }
-            else if (state == EnemyState.Damage)
+            else if (state == Eventos.Enemy_Damage)
             {
                 life = enemy.life;
                 updateLifebar(); // executa as instruções para diminuir a barra de vida;
