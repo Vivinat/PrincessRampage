@@ -85,6 +85,24 @@ O Observer define uma dependência “um para muitos”. Quando um objeto mudar 
 
 ## 🚧 Concurrency (Corrotinas)
 
+## 🚧 Concurrency (Corrotinas)
+Sendo uma design pattern de Concorrência, as Corrotinas (Coroutines) são métodos que que podem ser usados para pausar a execução em determinada parte do código, geralmente utilizado para contabilizar tempo e retornar um resultado após este tempo ter se esgotado. Corrotinas foram utilizadas no jogo para determinar o tempo em que os inimigos piscam após receberem dano, e o tempo de duração do disparo executado pelo player, entre outros. 
+
+````
+    void Start()
+    {
+        gameController = FindObjectOfType<Game_Controller>();
+        StartCoroutine(DeathDelay()); //Coroutine para saber quando destruimos a bala
+    }
+````
+
+````
+    IEnumerator DeathDelay(){
+        yield return new WaitForSeconds(lifeTime);  //Espere a quantidade de tempo definido por lifeTime
+        Destroy(gameObject);       //Depois, destrua o objeto (a bala)
+    }
+````
+
 # ❤ Créditos e Agradecimentos
 Agradecimentos especiais para os artistas que compartilharam suas artes:
 
