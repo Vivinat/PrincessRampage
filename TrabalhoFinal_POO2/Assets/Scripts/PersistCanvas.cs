@@ -7,17 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PersistCanvas : MonoBehaviour
 {
-
-    void Awake()
-    {
-        if (FindObjectsOfType<PersistCanvas>().Length > 1)
-        {
-            Destroy(gameObject);
-        }else{
-            DontDestroyOnLoad(gameObject);
-        }
-    }
-
+    
     // Start is called before the first frame update
     void Start()
     {

@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="584f4828-e3f6-47cc-be18-10ef93efe52a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Observer/Eventos.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Observer/Eventos.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrabalhoFinal_POO2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrabalhoFinal_POO2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Stages/FinalBoss.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Stages/FinalBoss.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CounterScore/Counter_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CounterScore/Counter_Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/BossLifeBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/BossLifeBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy_Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Observer/IObs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Observer/IObs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Observer/ISubj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Observer/ISubj.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +75,8 @@
       <workItem from="1670772003768" duration="4504000" />
       <workItem from="1670884062017" duration="1177000" />
       <workItem from="1670887012134" duration="2897000" />
-      <workItem from="1670890181537" duration="2327000" />
+      <workItem from="1670890181537" duration="3339000" />
+      <workItem from="1670894801250" duration="370000" />
     </task>
     <task id="LOCAL-00001" summary="Ajustado o Singleton (Game_COntroller) e o Observer (contador)">
       <created>1670542703062</created>
