@@ -84,8 +84,6 @@ O Observer define uma dependência “um para muitos”. Quando um objeto mudar 
 - Na fase "Final Boss" houve a necessidade de mostrar a quantidade de vida restante do Boss, ja que ele é o mais difícil. Quando o inimigo é o Boss ele registra a barra de vida como um de seus observadores e a notifica de que nasceu na cena para que a vida máxima dela seja calculada. A barra de vida é então notificada sempre que o Boss recebe algum dano. Ela recebe a instância do Boss e o seu estado (que nesse caso será Damage. É feito então o cálculo do dano para diminuir a barra de vida de acordo com o dano que recebeu.
 
 ## 🚧 Concurrency (Corrotinas)
-
-## 🚧 Concurrency (Corrotinas)
 Sendo uma design pattern de Concorrência, as Corrotinas (Coroutines) são métodos que que podem ser usados para pausar a execução em determinada parte do código, geralmente utilizado para contabilizar tempo e retornar um resultado após este tempo ter se esgotado. Corrotinas foram utilizadas no jogo para determinar o tempo em que os inimigos piscam após receberem dano, e o tempo de duração do disparo executado pelo player, entre outros. 
 
 ````
