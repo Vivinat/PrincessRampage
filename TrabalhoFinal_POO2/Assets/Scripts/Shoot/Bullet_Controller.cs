@@ -54,7 +54,7 @@ namespace DefaultNamespace
 
         void OnTriggerEnter2D(Collider2D collider)
         {
-            if(collider.tag == "Enemy" && !isEnemyBullet){                                  //Se minha bala acerta alguma coisa com a tag Enemy
+            if((collider.tag == "Enemy" || collider.CompareTag("BossEnemy")) && !isEnemyBullet){                                  //Se minha bala acerta alguma coisa com a tag Enemy
                 collider.gameObject.GetComponent<Enemy_Controller>().TakeDamage(damage);    //Essa coisa toma dano
                 Destroy(gameObject);
             }

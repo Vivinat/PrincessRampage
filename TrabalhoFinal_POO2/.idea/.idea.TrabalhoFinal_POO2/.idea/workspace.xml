@@ -3,16 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="584f4828-e3f6-47cc-be18-10ef93efe52a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrabalhoFinal_POO2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrabalhoFinal_POO2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Stages/FourthStage.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Stages/FourthStage.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Witch.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Witch.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Stages/FinalBoss.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Stages/FinalBoss.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CounterScore/Counter_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CounterScore/Counter_Controller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/BossLifeBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/BossLifeBar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy_Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PersistCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PersistCanvas.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Observer/IObs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Observer/IObs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Observer/ISubj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Observer/ISubj.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Shoot/Bullet_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Shoot/Bullet_Controller.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/augus/OneDrive/Área de Trabalho/Trabalho POO/TRABFINAL_POO2/TrabalhoFinal_POO2/Assets/Prefabs/Enemies/Witch.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/augus/OneDrive/Área de Trabalho/Trabalho POO/TRABFINAL_POO2/TrabalhoFinal_POO2/Assets/Scenes/Stages/FinalBoss.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/augus/OneDrive/Área de Trabalho/Trabalho POO/TRABFINAL_POO2/TrabalhoFinal_POO2/Assets/Scripts/Enemy/BossLifeBar.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -31,7 +39,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CodeLensConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -76,7 +84,10 @@
       <workItem from="1670537831049" duration="5716000" />
       <workItem from="1670544551094" duration="4004000" />
       <workItem from="1670584865072" duration="18732000" />
-      <workItem from="1670632787289" duration="5928000" />
+      <workItem from="1670632787289" duration="6654000" />
+      <workItem from="1670772003768" duration="4504000" />
+      <workItem from="1670884062017" duration="1177000" />
+      <workItem from="1670887012134" duration="2374000" />
     </task>
     <task id="LOCAL-00001" summary="Ajustado o Singleton (Game_COntroller) e o Observer (contador)">
       <created>1670542703062</created>

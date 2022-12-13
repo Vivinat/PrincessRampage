@@ -10993,9 +10993,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3102777165967870901, guid: ef4fff03e285ac844a9b974999b7c148, type: 3}
+      propertyPath: life
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102777165967870901, guid: ef4fff03e285ac844a9b974999b7c148, type: 3}
+      propertyPath: enemyDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3102777165967870903, guid: ef4fff03e285ac844a9b974999b7c148, type: 3}
       propertyPath: m_Name
       value: Witch
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102777165967870903, guid: ef4fff03e285ac844a9b974999b7c148, type: 3}
+      propertyPath: m_TagString
+      value: BossEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 3102777165967870906, guid: ef4fff03e285ac844a9b974999b7c148, type: 3}
       propertyPath: m_RootOrder

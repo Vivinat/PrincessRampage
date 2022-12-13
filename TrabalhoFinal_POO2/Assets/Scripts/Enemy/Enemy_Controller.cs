@@ -72,7 +72,7 @@ namespace DefaultNamespace{
             spriteRenderer = GetComponent<SpriteRenderer>();        //Pegue o renderizador do inimigo
             originalMaterial = spriteRenderer.material;
 
-            if (enemyType == EnemyType.Ranged)
+            if (this.gameObject.CompareTag("BossEnemy"))
             {
                 bossLifeBar = GameObject.FindObjectOfType<BossLifeBar>();
                 register(bossLifeBar);
@@ -151,7 +151,7 @@ namespace DefaultNamespace{
         {
             Flash();        //Vou piscar para sinalizar que tomei dano
             life -= damage;
-            if (enemyType == EnemyType.Ranged)
+            if (this.gameObject.CompareTag("BossEnemy"))
             {
                 currentState = EnemyState.Damage;
                 notify(this, currentState);

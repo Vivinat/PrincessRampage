@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+// ReSharper disable All
 
 namespace DefaultNamespace
 {
@@ -46,7 +47,7 @@ namespace DefaultNamespace
             redBar.rectTransform.localScale = lifeBarScale;
             
 
-            if (lifeBarScale.x <= 0.67) // vida em 3/3
+            if (lifeBarScale.x >= 0.67) // vida em 3/3
             {
                 greenBar.enabled = true;
                 yellowBar.enabled = false;

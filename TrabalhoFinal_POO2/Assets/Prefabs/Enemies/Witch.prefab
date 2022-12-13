@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 4998726471833750614}
   m_Layer: 0
   m_Name: Witch
-  m_TagString: Enemy
+  m_TagString: BossEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -592,7 +592,7 @@ MonoBehaviour:
   enemyType: 1
   speed: 7
   attackRange: 30
-  enemyDamage: 10
+  enemyDamage: 1
   cooldown: 1
   life: 100
   XP: 100

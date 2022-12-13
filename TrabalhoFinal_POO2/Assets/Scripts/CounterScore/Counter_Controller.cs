@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+// ReSharper disable All
 
 
 
@@ -31,15 +32,13 @@ namespace DefaultNamespace
             var enemy = (Enemy_Controller)subj;
             if (state == EnemyState.Born) // se o inimigo foi criado
             {
-                print("OK. Enemy is born!");
                 enemy.register(this);
             }
-            // senão, se for destruido
-            else if (state == EnemyState.Die)
+            else if (state == EnemyState.Die) // senão, se for destruido
             {
                 Points = enemy.getDamage() * 10; // Cada inimigo soma pontos de acordo com seu dano (dificil de matar gera mais pontos);
                 CurrentScore += Points; // soma no total;
-                Points = 0; // para garantir que não vai somar ponto sem termatado o inimigo;
+                Points = 0; // para garantir que não vai somar ponto sem ter matado o inimigo;
                 SetCurrentScoreText(CurrentScore.ToString()); // mostra na tela;
             }
         }

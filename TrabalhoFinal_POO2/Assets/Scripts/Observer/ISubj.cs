@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+// ReSharper disable All
 
 
 namespace DefaultNamespace
@@ -13,3 +14,6 @@ namespace DefaultNamespace
         void notify(ISubj subj, EnemyState state);
     }
 }
+
+
+
