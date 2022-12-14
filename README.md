@@ -115,7 +115,10 @@ Agradecimentos especiais para os artistas que compartilharam suas artes:
 Quaisquer outras artes que não foram aqui citadas foram produzidas de forma original ou, se sua arte foi usada, peço que entre em contato para que possa ser fornecido os devidos créditos.
 
 #  Autores
-🌸[Vinicius Vieira Mota](https://github.com/Vivinat)
+[Vinicius Vieira Mota](https://github.com/Vivinat)              
+[Augusto Lázaro](https://github.com/augustolr06)                
+[Matheus Rodrigues Pronunciate](https://github.com/MatheusPronunciate)             
+[Guilhermesf27](https://github.com/Guilhermesf27)     
 
 
 🎮👨‍🦲 Projeto desenvolvido para a disciplina POO2 do Professor [Phyllipe Lima](https://github.com/phillima). 
